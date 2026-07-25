@@ -56,7 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.querySelector('.login-btn');
     if (loginBtn) {
         loginBtn.addEventListener('click', () => {
-            window.location.href = 'html/joinus.html';
+            const onHomePage = !window.location.pathname.includes('/html/');
+            window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
         });
     }
+
+    // Team flip cards (About Us page)
+    document.querySelectorAll('.flip-card').forEach((card) => {
+        card.addEventListener('click', () => {
+            const flipped = card.classList.toggle('flipped');
+            card.setAttribute('aria-pressed', String(flipped));
+        });
+    });
 });

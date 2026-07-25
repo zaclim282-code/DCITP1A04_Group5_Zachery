@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPFIT - About Us</title>
+    <link rel="stylesheet" href="../assets/css/about.css">
+</head>
+<body class="page-about">
+
+  <header class="site-header">
+    <div class="top-bar">
+      <button type="button" class="logo-btn">SP<br>FIT</button>
+      <h1 class="brand-title">SPFIT</h1>
+      <button type="button" class="login-btn">Login / Join</button>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="aboutus.html" class="active">About Us</a></li>
+        <li><a href="begworkout.html">Beginner Workouts</a></li>
+        <li><a href="strength.html">Strength Training</a></li>
+        <li><a href="cardio.html">Cardio Exercises</a></li>
+        <li><a href="stretchingandflexibility.html">Stretching &amp; Flexibility</a></li>
+        <li><a href="nutrition.html">Health &amp; Nutrition</a></li>
+        <li><a href="tips.html">Fitness Tips</a></li>
+        <li><a href="gallery.html">Workout Gallery</a></li>
+        <li><a href="workoutTable.html">Workout Planner</a></li>
+        <li><a href="joinus.html">Contact Us / Join Us</a></li>
+        <li><a href="mainActivity.html">Fitness Activity</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <h1><b>About SPFIT</b></h1>
+    <h3>The people and purpose behind your fitness journey</h3>
+  </section>
+
+  <section class="purpose-section">
+    <div class="container">
+      <h2>Our Purpose</h2>
+      <p>SPFIT was built to make real, sustainable fitness feel welcoming instead of intimidating. We combine coach-built programs, honest nutrition guidance, and a community that shows up for you, so progress feels achievable at every stage &mdash; whether you're starting your very first workout or training for a personal best.</p>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container mission-grid">
+      <div class="mission-card">
+        <div class="icon-box">🎯</div>
+        <h3>Our Mission</h3>
+        <p>To give everyone the tools, knowledge, and support they need to build a stronger, healthier life, one workout at a time.</p>
+      </div>
+      <div class="mission-card">
+        <div class="icon-box">🌱</div>
+        <h3>Our Vision</h3>
+        <p>A world where fitness is approachable for every body, every background, and every fitness level, not just the already-fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <p class="team-subtitle">The coaches and specialists behind your program</p>
+
+      <div class="team-grid">
+        <button type="button" class="flip-card" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://placehold.co/200x200/16a34a/ffffff?text=A" alt="Alex, Head Coach">
+              <h4>Alex Rivera</h4>
+              <p>Head Coach</p>
+            </div>
+            <div class="flip-back">
+              <p>10+ years coaching strength &amp; conditioning. Believes every plan should fit the person, not the other way around.</p>
+            </div>
+          </div>
+        </button>
+
+        <button type="button" class="flip-card" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://placehold.co/200x200/22c55e/ffffff?text=J" alt="Jamie, Nutrition Lead">
+              <h4>Jamie Chen</h4>
+              <p>Nutrition Lead</p>
+            </div>
+            <div class="flip-back">
+              <p>Registered dietitian focused on simple, sustainable eating habits over restrictive diets.</p>
+            </div>
+          </div>
+        </button>
+
+        <button type="button" class="flip-card" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://placehold.co/200x200/15803d/ffffff?text=R" alt="Riley, Mobility Coach">
+              <h4>Riley Park</h4>
+              <p>Mobility Coach</p>
+            </div>
+            <div class="flip-back">
+              <p>Specializes in flexibility and injury prevention, helping members move better and recover faster.</p>
+            </div>
+          </div>
+        </button>
+
+        <button type="button" class="flip-card" aria-pressed="false">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://placehold.co/200x200/166534/ffffff?text=J" alt="Jordan, Community Manager">
+              <h4>Jordan Blake</h4>
+              <p>Community Manager</p>
+            </div>
+            <div class="flip-back">
+              <p>Keeps the SPFIT community connected, motivated, and accountable to each other.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <p class="team-hint">Tap a card to learn more about each team member</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="motivation-card">
+      <h3>Daily Motivation</h3>
+      <div class="quote-carousel">
+        <button class="arrow-btn" onclick="prevQuote()">&#10094;</button>
+        <div class="quote-content">
+          <blockquote id="quote-text">"The only bad workout is the one that didn't happen."</blockquote>
+          <p id="quote-author">- Unknown</p>
+        </div>
+        <button class="arrow-btn" onclick="nextQuote()">&#10095;</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/about.js"></script>
+</body>
+</html>
