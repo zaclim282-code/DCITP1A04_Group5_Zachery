@@ -8,6 +8,17 @@
     --dark: #2d2d3a;
     --soft-gray: #f7f5fa;
     --white: #ffffff;
+
+    /* About Us green scale */
+    --green-50: #f0fdf4;
+    --green-100: #dcfce7;
+    --green-200: #bbf7d0;
+    --green-300: #86efac;
+    --green-400: #4ade80;
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
 }
 
 * {
@@ -85,18 +96,21 @@ a {
 
 .main-nav {
     background: var(--pink);
-    overflow-x: auto;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
-    white-space: nowrap;
+}
+
+.main-nav > ul > li {
+    position: relative;
 }
 
 .main-nav a {
@@ -111,6 +125,57 @@ a {
 .main-nav a:hover,
 .main-nav a.active {
     border-bottom-color: var(--dark);
+}
+
+/* Dropdown categories inside the nav */
+.main-nav .dropdown-toggle::after {
+    content: '\25BE';
+    margin-left: 5px;
+    font-size: 0.7rem;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.main-nav .dropdown.open .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    min-width: 210px;
+    white-space: normal;
+    z-index: 200;
+    list-style: none;
+}
+
+.main-nav .dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-bottom: none;
+    color: var(--dark);
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+    background: var(--soft-gray);
 }
 
 /* ---------- Hero ---------- */
@@ -322,11 +387,213 @@ footer {
     color: var(--pink);
 }
 
+/* ---------- About Us page (green theme) ---------- */
+.page-about .main-nav {
+    background: var(--green-100);
+}
+
+.page-about .main-nav a:hover,
+.page-about .main-nav a.active {
+    border-bottom-color: var(--green-600);
+}
+
+.page-about .dropdown-menu a:hover,
+.page-about .dropdown-menu a.active {
+    background: var(--green-50);
+    color: var(--green-800);
+}
+
+.page-about .logo-btn {
+    background: var(--green-700);
+}
+
+.page-about .login-btn {
+    border-color: var(--green-700);
+    color: var(--green-700);
+}
+
+.page-about .login-btn:hover {
+    background: var(--green-700);
+    color: var(--white);
+}
+
+.page-about .hero-section {
+    background: linear-gradient(135deg, var(--green-50) 0%, var(--green-100) 50%, var(--green-200) 100%);
+}
+
+/* Purpose */
+.purpose-section {
+    padding: 70px 20px;
+    text-align: center;
+    background: var(--green-50);
+}
+
+.purpose-section .container {
+    max-width: 700px;
+}
+
+.purpose-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 14px;
+    color: var(--green-800);
+}
+
+.purpose-section p {
+    font-size: 1.1rem;
+    color: #4a4a5a;
+}
+
+/* Mission & Vision */
+.mission-section {
+    padding: 70px 20px;
+    background: var(--white);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 28px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.mission-card {
+    border: 2px solid var(--green-200);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.15);
+}
+
+.mission-card .icon-box {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.mission-card h3 {
+    color: var(--green-700);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Team */
+.team-section {
+    padding: 70px 20px;
+    background: var(--green-50);
+    text-align: center;
+}
+
+.team-section h2 {
+    color: var(--green-800);
+    margin-bottom: 8px;
+    font-size: 1.9rem;
+}
+
+.team-subtitle {
+    color: #4a4a5a;
+    margin-bottom: 44px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+    height: 260px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.flip-front {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.flip-front img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.flip-front h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.flip-front p {
+    font-size: 0.85rem;
+    color: var(--green-700);
+}
+
+.flip-back {
+    background: var(--green-600);
+    color: var(--white);
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.team-hint {
+    margin-top: 32px;
+    font-style: italic;
+    color: #6b6b7a;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .features-grid,
-    .choose-grid {
+    .choose-grid,
+    .mission-grid {
         grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .top-bar {
@@ -335,5 +602,21 @@ footer {
 
     .hero-section h1 {
         font-size: 2rem;
+    }
+
+    .main-nav ul {
+        justify-content: flex-start;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        background: var(--soft-gray);
+        display: none;
+    }
+
+    .main-nav .dropdown.open .dropdown-menu {
+        display: block;
     }
 }
