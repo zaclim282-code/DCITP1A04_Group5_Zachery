@@ -1,3 +1,4 @@
+// --- QUOTE CAROUSEL DATA & FUNCTIONS ---
 const quotes = [
     { text: "The only bad workout is the one that didn't happen.", author: "Unknown" },
     { text: "Strength doesn't come from what you can do. It comes from overcoming what you once couldn't.", author: "Rikki Rogers" },
@@ -25,11 +26,12 @@ function prevQuote() {
     renderQuote();
 }
 
+// --- MAIN INITIALIZATION ON DOM LOAD ---
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Render initial daily motivation quote
     renderQuote();
 
-    // Highlight the current page in the nav (covers top-level links and
-    // links tucked inside a dropdown category)
+    // 2. Highlight current active link in navigation
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.main-nav a').forEach((link) => {
         const linkPath = link.getAttribute('href').split('/').pop();
@@ -37,57 +39,63 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
             const parentDropdown = link.closest('.dropdown');
             if (parentDropdown) {
-                parentDropdown.querySelector('.dropdown-toggle')?.classList.add('active');
+                parentDropdown.querySelector('.dropdownText')?.classList.add('active');
             }
         }
     });
 
-    // Dropdown categories.
-    // Note: CSS `:hover` is intentionally NOT used to trigger these menus.
-    // Since the menus (210px) are wider than the gaps between nav items,
-    // their boxes overlap on screen — and `:hover` matches per-element
-    // geometry regardless of stacking, so a pure-CSS approach opens several
-    // overlapping menus at once. Real mouse events use proper hit-testing
-    // (only the topmost element under the pointer responds), so we drive
-    // everything from JS and keep a single source of truth: the "open" class.
+    // 3. Dropdown categories logic (click/tap only, one open at a time)
     const dropdowns = document.querySelectorAll('.main-nav .dropdown');
-    const hoverCapable = window.matchMedia('(hover: hover)').matches;
 
-    function openDropdown(target) {
+    function closeAllDropdowns() {
         dropdowns.forEach((d) => {
-            if (d !== target) d.classList.remove('open');
+            d.querySelector('.dropdownItems')?.classList.remove('active');
+            d.classList.remove('open');
         });
-        target.classList.add('open');
-    }
-
-    function closeDropdown(target) {
-        target.classList.remove('open');
+        document.querySelectorAll('.dropdownText').forEach((t) => t.setAttribute('aria-expanded', 'false'));
     }
 
     dropdowns.forEach((dropdown) => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const text = dropdown.querySelector('.dropdownText');
+        const items = dropdown.querySelector('.dropdownItems');
+        if (!text || !items) return;
 
-        if (hoverCapable) {
-            dropdown.addEventListener('mouseenter', () => openDropdown(dropdown));
-            dropdown.addEventListener('mouseleave', () => closeDropdown(dropdown));
+        // Make toggle accessible for keyboard navigation
+        text.setAttribute('tabindex', '0');
+        text.setAttribute('role', 'button');
+        text.setAttribute('aria-expanded', 'false');
+
+        function toggle() {
+            const wasOpen = items.classList.contains('active');
+            closeAllDropdowns();
+            if (!wasOpen) {
+                items.classList.add('active');
+                dropdown.classList.add('open'); // Drives arrow rotation in CSS
+                text.setAttribute('aria-expanded', 'true');
+            }
         }
 
-        // Click/tap always works too, so touch and keyboard users aren't left out
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            const wasOpen = dropdown.classList.contains('open');
-            wasOpen ? closeDropdown(dropdown) : openDropdown(dropdown);
+        text.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggle();
+        });
+
+        text.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
         });
     });
 
-    // Close open dropdowns when clicking anywhere outside the nav
+    // Close open dropdowns when clicking outside nav
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.main-nav')) {
-            dropdowns.forEach((d) => closeDropdown(d));
+        if (!e.target.closest('.dropdown')) {
+            closeAllDropdowns();
         }
     });
 
-    // Hero buttons: jump to featured programs / learn more
+    // 4. Hero section button event listeners
     const workoutBtn = document.getElementById('Workoutbtn');
     if (workoutBtn) {
         workoutBtn.addEventListener('click', () => {
@@ -102,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Login button
+    // 5. Header Login/Join button listener
     const loginBtn = document.querySelector('.login-btn');
     if (loginBtn) {
         loginBtn.addEventListener('click', () => {
@@ -111,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Team flip cards (About Us page)
+    // 6. Flip card interaction for About Us page
     document.querySelectorAll('.flip-card').forEach((card) => {
         card.addEventListener('click', () => {
             const flipped = card.classList.toggle('flipped');

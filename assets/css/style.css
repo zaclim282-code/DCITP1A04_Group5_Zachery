@@ -98,86 +98,81 @@ a {
     background: var(--pink);
 }
 
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 16px;
+/* Dropdown arrow styling & rotation */
+/* --- MAIN NAVIGATION BAR --- */
+.main-nav {
+  background-color: var(--pink, #91cf64);
+  width: 100%;
 }
 
+.main-nav > ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Parent menu item containing a dropdown */
 .main-nav > ul > li {
-    position: relative;
+  position: relative; /* REQUIRED for dropdown positioning */
 }
 
-.main-nav a {
-    display: inline-block;
-    padding: 12px 14px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.25s ease, opacity 0.25s ease;
+.main-nav a,
+.main-nav .dropdownText {
+  display: inline-block;
+  padding: 12px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--dark, #2d2d3a);
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-    border-bottom-color: var(--dark);
+/* --- DROPDOWN BOX --- */
+.dropdownItems {
+  display: none;                  /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);   /* Centers dropdown directly below its menu title */
+  background-color: #ffffff;
+  min-width: 190px;
+  border-radius: 12px;
+  padding: 8px 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  margin-top: 4px;
+  list-style: none;
 }
 
-/* Dropdown categories inside the nav */
-.main-nav .dropdown-toggle::after {
-    content: '\25BE';
-    margin-left: 5px;
-    font-size: 0.7rem;
-    display: inline-block;
-    transition: transform 0.25s ease;
+/* Class toggled by JavaScript */
+.dropdownItems.active {
+  display: flex !important;      
+  flex-direction: column !important; /* FORCES LINKS TO STACK VERTICALLY */
 }
 
-.main-nav .dropdown.open .dropdown-toggle::after {
-    transform: rotate(180deg);
+/* Individual dropdown links */
+.dropdownItems li {
+  width: 100%;
+  display: block;
 }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    border-radius: 14px;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
-    padding: 8px;
-    min-width: 210px;
-    white-space: normal;
-    z-index: 200;
-    list-style: none;
+.dropdownItems li a {
+  display: block;
+  padding: 10px 16px;
+  color: #166534;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;           /* Prevents text wrapping */
 }
 
-.main-nav .dropdown.open .dropdown-menu {
-    display: block;
+.dropdownItems li a:hover {
+  background-color: #dcfce7;
+  color: #15803d;
 }
-
-.dropdown-menu li {
-    list-style: none;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border-bottom: none;
-    color: var(--dark);
-}
-
-.dropdown-menu a:hover,
-.dropdown-menu a.active {
-    background: var(--soft-gray);
-}
-
 /* ---------- Hero ---------- */
 .hero-section {
     text-align: center;
@@ -397,8 +392,8 @@ footer {
     border-bottom-color: var(--green-600);
 }
 
-.page-about .dropdown-menu a:hover,
-.page-about .dropdown-menu a.active {
+.page-about .dropdownItems a:hover,
+.page-about .dropdownItems a.active {
     background: var(--green-50);
     color: var(--green-800);
 }
@@ -608,7 +603,7 @@ footer {
         justify-content: flex-start;
     }
 
-    .dropdown-menu {
+    .dropdownItems {
         position: static;
         box-shadow: none;
         border-radius: 0;
@@ -616,7 +611,7 @@ footer {
         display: none;
     }
 
-    .main-nav .dropdown.open .dropdown-menu {
+    .dropdownItems.active {
         display: block;
     }
 }
