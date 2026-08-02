@@ -1,18 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPFIT - Beginner Workouts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beginner Workouts — SPFIT</title>
+
+<!-- Shared site styles -->
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- Page-specific styles -->
+<link rel="stylesheet" href="../assets/css/beginner.css">
 </head>
 <body>
-      <label for="cars">Choose a car:</label>
 
-<select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header">
+  <div class="top-bar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="logo-btn">SP</button>
+      <span class="brand-title">SPFIT</span>
+    </div>
+    <a href="../html/connect.html" class="login-btn">Login / Join</a>
+  </div>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+
+      <li class="dropdown">
+        <p class="dropdownText">About</p>
+        <ul class="dropdownItems">
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="connect.html">Contact Us</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <p class="dropdownText">Workouts</p>
+        <ul class="dropdownItems">
+          <li><a href="beginner.html" class="active">Beginner Workout</a></li>
+          <li><a href="strength.html">Strength Training</a></li>
+          <li><a href="cardio.html">Cardio Exercise</a></li>
+          <li><a href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <p class="dropdownText">Resources</p>
+        <ul class="dropdownItems">
+          <li><a href="nutrition.html">Healthy Nutrition</a></li>
+          <li><a href="tips.html">Fitness Tips</a></li>
+          <li><a href="workoutTable.html">Workout Planner</a></li>
+          <li><a href="gallery.html">Workout Gallery</a></li>
+        </ul>
+      </li>
+
+      <li><a href="mainActivity.html">Fitness Activity</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="workout-hero">
+  <h1>Beginner Workouts</h1>
+  <p>Easy-to-follow exercises to build a strong foundation and prevent injuries.</p>
+</section>
+
+<!-- ============ EXERCISE GRID ============ -->
+<section class="workout-section">
+  <div class="container">
+
+    <div class="workout-grid">
+
+      <div class="workout-card">
+        <div class="workout-icon">🏋️</div>
+        <span class="workout-meta">3 sets × 10 reps</span>
+        <h3>Sit-Ups</h3>
+        <p class="workout-desc">Strengthen your core and abs.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-icon">🏃</div>
+        <span class="workout-meta">10 minutes</span>
+        <h3>10-Min Jog</h3>
+        <p class="workout-desc">Improve your stamina and heart health.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-icon">🦵</div>
+        <span class="workout-meta">3 sets × 10 reps</span>
+        <h3>Bodyweight Squats</h3>
+        <p class="workout-desc">Build lower body strength.</p>
+      </div>
+
+    </div>
+
+    <div class="tip-banner">
+      <span class="tip-icon">💡</span>
+      <p><strong>Tip:</strong> Focus on form and consistency. Start slow and progress at your own pace.</p>
+    </div>
+
+    <div class="view-all-wrap">
+      <a href="beginner-all.html" class="btn-view-all">View All Beginner Workouts</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 SPFIT. All rights reserved.
+</footer>
+
 </body>
 </html>

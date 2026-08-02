@@ -1,7 +1,7 @@
 :root {
-    --pink: #91cf64;
+    --pink: #4aa16d;
     --blue: #d4e8f7;
-    --green: #d4f0e0;
+    --sp-bg-soft:#98beab;
     --lavender: #e8dff5;
     --peach: #fde8d8;
     --mint: #d6f5ed;
@@ -50,6 +50,17 @@ a {
     top: 0;
     z-index: 100;
 }
+
+/*!MPORTANT */
+.main-nav a,
+.dropdownText {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
 
 .top-bar {
     display: flex;
