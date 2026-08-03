@@ -49,14 +49,14 @@
     <li><a href="html/mainActivity.html">Fitness Activity</a></li>
   </ul>
 </nav>
-<!-- Header Section: Why Do We Stretch? -->
+
 <section class="container-xl text-center py-5">
     <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
     <p class="mt-4 fs-5 text-secondary mx-auto" style="max-width: 900px;">
         Stretching and mobility work are essential for maintaining healthy, functional joints and muscles. When we exercise, our muscles contract and undergo stress. These issues may seem unimportant, but without a proper stretching routine:
     </p>
 
-    <!-- Risk Factors Cards -->
+    
     <div class="row g-4 mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-2 p-3 text-start">
@@ -90,21 +90,17 @@
         </p>
     </div>
 
-    <!-- Filter Buttons (Warm-Up vs Cool-Down) -->
     <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4" id="filter-buttons">
         <button class="filter-btn nav-link active px-4 py-2 fs-5" onclick="filterCategory('warm-up', this)">Warm-Up</button>
         <button class="filter-btn nav-link px-4 py-2 fs-5" onclick="filterCategory('cool-down', this)">Cool-Down</button>
     </div>
 
-    <!-- Filtered Content Display -->
     <div class="row justify-content-center" id="stretch-content">
 
-        <!-- 1. Warm-up Card -->
         <div class="col-lg-10 filter-card warm-up">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">1. Warm-up: Dynamic Workout (pre-workout)</h3>
                 
-                <!-- Place to display image -->
                 <div class="card-img-wrapper mb-4">
                     <img src="../assets/images/dynamic-warmup.png" alt="Dynamic Warm-up" onerror="this.src='https://via.placeholder.com/800x300?text=Warm-Up+Dynamic+Stretching+Image'">
                 </div>
@@ -123,12 +119,11 @@
             </div>
         </div>
 
-        <!-- 2. Cool-Down Card -->
+
         <div class="col-lg-10 filter-card cool-down">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">2. Cool-Down: Static Stretching (Post-Workout)</h3>
-                
-                <!-- Place to display image -->
+        
                 <div class="card-img-wrapper mb-4">
                     <img src="../assets/images/static-stretch.png" alt="Static Cool-Down" onerror="this.src='https://via.placeholder.com/800x300?text=Cool-Down+Static+Stretching+Image'">
                 </div>
@@ -161,10 +156,7 @@
 </div>
 </section>
 
-<!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Filter Script -->
 <script src="stretchingandflexibiliy.js"></script>
 
 </body>
