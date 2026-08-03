@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPFIT - Stretching & Flexibility</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="stretch.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li class="dropdown">
+      <p class="dropdownText">About</p>
+      <ul class="dropdownItems">
+        <li><a href="html/aboutus.html">About Us</a></li>
+        <li><a href="html/connect.html">Contact Us</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <p class="dropdownText">Workouts</p>
+      <ul class="dropdownItems">
+        <li><a href="html/begworkout.html">Beginner Workout</a></li>
+        <li><a href="html/strength.html">Strength Training</a></li>
+        <li><a href="html/cardio.html">Cardio Exercise</a></li>
+        <li><a href="html/stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <p class="dropdownText">Resources</p>
+      <ul class="dropdownItems">
+        <li><a href="html/nutrition.html">Healthy Nutrition</a></li>
+        <li><a href="html/tips.html">Fitness Tips</a></li>
+        <li><a href="html/workoutTable.html">Workout Planner</a></li>
+        <li><a href="html/gallery.html">Workout Gallery</a></li>
+      </ul>
+    </li>
+
+    <li><a href="html/mainActivity.html">Fitness Activity</a></li>
+  </ul>
+</nav>
+
+<section class="container-xl text-center py-5">
+    <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
+    <p class="mt-4 fs-5 text-secondary mx-auto" style="max-width: 900px;">
+        Stretching and mobility work are essential for maintaining healthy, functional joints and muscles. When we exercise, our muscles contract and undergo stress. These issues may seem unimportant, but without a proper stretching routine:
+    </p>
+
+    
+    <div class="row g-4 mt-3 justify-content-center">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-2 p-3 text-start">
+                <div class="card-body">
+                    <h4 class="card-title fw-bold text-danger">Injury risk increases</h4>
+                    <p class="card-text fs-5 mt-3">
+                        Stiff muscles and limited joint range are far more susceptible to injuries such as strain or tearing.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-2 p-3 text-start">
+                <div class="card-body">
+                    <h4 class="card-title fw-bold text-warning">Performance drops</h4>
+                    <p class="card-text fs-5 mt-3">
+                        Limited mobility in joints and muscles may decrease efficiency when doing exercises.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section: Types of Stretching -->
+<section class="container-xl my-4">
+    <div class="text-center mb-4">
+        <h2 class="display-5 fw-bold">Types of Stretching</h2>
+        <p class="fs-5 text-muted mt-2 mx-auto" style="max-width: 800px;">
+            Not all stretching is always suitable. Using the wrong type of stretch at the wrong time can decrease performance or increase injury risk.
+        </p>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4" id="filter-buttons">
+        <button class="filter-btn nav-link active px-4 py-2 fs-5" onclick="filterCategory('warm-up', this)">Warm-Up</button>
+        <button class="filter-btn nav-link px-4 py-2 fs-5" onclick="filterCategory('cool-down', this)">Cool-Down</button>
+    </div>
+
+    <div class="row justify-content-center" id="stretch-content">
+
+        <div class="col-lg-10 filter-card warm-up">
+            <div class="card shadow border-2 p-4 mb-4">
+                <h3 class="card-title fw-bold text-primary mb-3">1. Warm-up: Dynamic Workout (pre-workout)</h3>
+                
+                <div class="card-img-wrapper mb-4">
+                    <img src="../assets/images/dynamic-warmup.png" alt="Dynamic Warm-up" onerror="this.src='https://via.placeholder.com/800x300?text=Warm-Up+Dynamic+Stretching+Image'">
+                </div>
+
+                <div class="card-body p-0 fs-5">
+                    <p class="mb-3">
+                        <strong>Effect:</strong> Prepare the central nervous system, increase heart rate, send blood flow to target muscles, and warm up joint synovial fluid.
+                    </p>
+                    <p class="mb-3">
+                        <strong>Why it prevents injury:</strong> Cold muscles are brittle. Dynamic movements prime muscles through functional ranges of motion without weakening muscular power output before intense workouts.
+                    </p>
+                    <p class="mb-0 text-primary fw-semibold">
+                        <strong>Duration:</strong> Moving continuously (10–15 reps per movement)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-10 filter-card cool-down">
+            <div class="card shadow border-2 p-4 mb-4">
+                <h3 class="card-title fw-bold text-primary mb-3">2. Cool-Down: Static Stretching (Post-Workout)</h3>
+        
+                <div class="card-img-wrapper mb-4">
+                    <img src="../assets/images/static-stretch.png" alt="Static Cool-Down" onerror="this.src='https://via.placeholder.com/800x300?text=Cool-Down+Static+Stretching+Image'">
+                </div>
+
+                <div class="card-body p-0 fs-5">
+                    <p class="mb-3">
+                        <strong>Effect:</strong> Bring heart rate back down, elongate warm muscle fibres, promotes recovery.
+                    </p>
+                    <p class="mb-3">
+                        <strong>Why it prevents injury:</strong> After workouts, muscle fibres are shortened and inflamed. Holding static stretches signals the nervous system to relax and helps reset baseline muscle length, reducing chronic stiffness over time.
+                    </p>
+                    <p class="mb-0 text-primary fw-semibold">
+                        <strong>Duration:</strong> Holding positions (15–30 seconds per muscle)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container my-5">
+
+    <div class="alert alert-primary border shadow-sm text-center">
+
+        <strong>Tip:</strong>
+
+        Stretch regularly. Move better. Feel better
+
+    </div>
+
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="stretchingandflexibiliy.js"></script>
+
+</body>
+</html>
