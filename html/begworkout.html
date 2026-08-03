@@ -75,7 +75,6 @@
         <div class="workout-image-placeholder">
           <img src="../assets/image/SitUp.png" alt="SitUp" class="BeG">
         </div>
-
         <span class="workout-meta">3 sets × 10 reps</span>
         <h3>Sit-Ups</h3>
         <p class="workout-desc">Strengthen your core and abs.</p>
@@ -85,7 +84,6 @@
         <div class="workout-image-placeholder">
           <img src="../assets/image/CardioRunning.jpg" alt="jogging" class="BeG">
         </div>
-
         <span class="workout-meta">10 minutes</span>
         <h3>10-Min Jog</h3>
         <p class="workout-desc">Improve your stamina and heart health.</p>
@@ -95,10 +93,122 @@
         <div class="workout-image-placeholder">
           <img src="../assets/image/squats.jpg" alt="squats" class="BeG">
         </div>
-
         <span class="workout-meta">3 sets × 10 reps</span>
         <h3>Bodyweight Squats</h3>
         <p class="workout-desc">Build lower body strength.</p>
+      </div>
+
+    </div>
+
+    <!-- ============ HIDDEN "VIEW ALL" GRID ============ -->
+    <div class="workout-grid workout-grid-extra" id="extraWorkouts" style="display: none;">
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/PushUp.png" alt="push-up" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 8 reps</span>
+        <h3>Push-Ups</h3>
+        <p class="workout-desc">Build upper body and core strength (try knee or wall variation if needed).</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/GluteBridge.jpg" alt="glute bridge" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 12 reps</span>
+        <h3>Glute Bridges</h3>
+        <p class="workout-desc">Activate your glutes and lower back.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/Plank.jpg" alt="plank hold" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 20 seconds</span>
+        <h3>Plank Hold</h3>
+        <p class="workout-desc">Build core stability and endurance.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/WallSit.jpg" alt="wall sit" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 20 seconds</span>
+        <h3>Wall Sit</h3>
+        <p class="workout-desc">Build endurance in your quads and glutes.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/Lunges.jpg" alt="standing lunges" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 10 reps per leg</span>
+        <h3>Standing Lunges</h3>
+        <p class="workout-desc">Improve balance and lower body strength.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/BriskWalk.jpg" alt="brisk walk" class="BeG">
+        </div>
+        <span class="workout-meta">15 minutes</span>
+        <h3>Brisk Walk</h3>
+        <p class="workout-desc">A low-impact way to get your heart rate up.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/JumpingJacks.jpg" alt="jumping jacks" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 20 reps</span>
+        <h3>Jumping Jacks</h3>
+        <p class="workout-desc">A full-body warm-up that gets your blood pumping.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/StepUps.jpg" alt="step ups" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 10 reps</span>
+        <h3>Step-Ups</h3>
+        <p class="workout-desc">Use a low step or stair to build leg strength and stamina.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/HighKnees.jpg" alt="high knees" class="BeG">
+        </div>
+        <span class="workout-meta">3 sets × 30 seconds</span>
+        <h3>High Knees</h3>
+        <p class="workout-desc">Boost your heart rate and work your core.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/CatCow.jpg" alt="cat-cow stretch" class="BeG">
+        </div>
+        <span class="workout-meta">2 sets × 8 reps</span>
+        <h3>Cat-Cow Stretch</h3>
+        <p class="workout-desc">Loosen up your spine and relieve back tension.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/HamstringStretch.jpg" alt="hamstring stretch" class="BeG">
+        </div>
+        <span class="workout-meta">30 seconds each side</span>
+        <h3>Standing Hamstring Stretch</h3>
+        <p class="workout-desc">Improve flexibility in your legs and lower back.</p>
+      </div>
+
+      <div class="workout-card">
+        <div class="workout-image-placeholder">
+          <img src="../assets/image/ShoulderRolls.jpg" alt="shoulder rolls" class="BeG">
+        </div>
+        <span class="workout-meta">2 sets × 10 reps</span>
+        <h3>Shoulder Rolls</h3>
+        <p class="workout-desc">Release tension and improve shoulder mobility.</p>
       </div>
 
     </div>
@@ -109,15 +219,15 @@
     </div>
 
     <div class="view-all-wrap">
-      <a href="beginner-all.html" class="btn-view-all">View All Beginner Workouts</a>
+      <button type="button" id="viewAllBtn" class="btn-view-all" aria-expanded="false" aria-controls="extraWorkouts">
+        View All Beginner Workouts
+      </button>
     </div>
 
   </div>
 </section>
 
-<footer>
-  &copy; 2026 SPFIT. All rights reserved.
-</footer>
 
+ <script src='../assets/js/beginnerworkout.js'></script>
 </body>
 </html>
