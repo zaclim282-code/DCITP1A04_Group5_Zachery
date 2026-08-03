@@ -13,50 +13,59 @@
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- Navigation -->
+<header class="site-header">
+    <div class="top-bar">
+      <button type="button" class="logo-btn">SP<br>FIT</button>
+      <h1 class="brand-title">SPFIT</h1>
+      <button type="button" class="login-btn">Login / Join</button>
+    </div>
+</header>
+
 <nav class="main-nav">
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="../index.html">Home</a></li>
 
     <li class="dropdown">
       <p class="dropdownText">About</p>
       <ul class="dropdownItems">
-        <li><a href="html/aboutus.html">About Us</a></li>
-        <li><a href="html/connect.html">Contact Us</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="joinus.html">Contact Us</a></li>
       </ul>
     </li>
 
     <li class="dropdown">
       <p class="dropdownText">Workouts</p>
       <ul class="dropdownItems">
-        <li><a href="html/begworkout.html">Beginner Workout</a></li>
-        <li><a href="html/strength.html">Strength Training</a></li>
-        <li><a href="html/cardio.html">Cardio Exercise</a></li>
-        <li><a href="html/stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+        <li><a href="begworkout.html">Beginner Workout</a></li>
+        <li><a href="strength.html">Strength Training</a></li>
+        <li><a href="cardio.html">Cardio Exercise</a></li>
+        <li><a href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
       </ul>
     </li>
 
     <li class="dropdown">
       <p class="dropdownText">Resources</p>
       <ul class="dropdownItems">
-        <li><a href="html/nutrition.html">Healthy Nutrition</a></li>
-        <li><a href="html/tips.html">Fitness Tips</a></li>
-        <li><a href="html/workoutTable.html">Workout Planner</a></li>
-        <li><a href="html/gallery.html">Workout Gallery</a></li>
+        <li><a href="nutrition.html">Healthy Nutrition</a></li>
+        <li><a href="tips.html">Fitness Tips</a></li>
+        <li><a href="workoutTable.html">Workout Planner</a></li>
+        <li><a href="gallery.html">Workout Gallery</a></li>
       </ul>
     </li>
 
-    <li><a href="html/mainActivity.html">Fitness Activity</a></li>
+    <li><a href="mainActivity.html">Fitness Activity</a></li>
   </ul>
 </nav>
 
+<!-- Header Section: Why Do We Stretch? -->
 <section class="container-xl text-center py-5">
     <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
     <p class="mt-4 fs-5 text-secondary mx-auto" style="max-width: 900px;">
         Stretching and mobility work are essential for maintaining healthy, functional joints and muscles. When we exercise, our muscles contract and undergo stress. These issues may seem unimportant, but without a proper stretching routine:
     </p>
 
-    
+    <!-- Risk Factors Cards -->
     <div class="row g-4 mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-2 p-3 text-start">
@@ -90,14 +99,17 @@
         </p>
     </div>
 
-    <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4" id="filter-buttons">
+    <!-- Filter Buttons -->
+    <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4">
         <button class="filter-btn nav-link active px-4 py-2 fs-5" onclick="filterCategory('warm-up', this)">Warm-Up</button>
         <button class="filter-btn nav-link px-4 py-2 fs-5" onclick="filterCategory('cool-down', this)">Cool-Down</button>
     </div>
 
-    <div class="row justify-content-center" id="stretch-content">
+    <!-- Filtered Content Display -->
+    <div class="row justify-content-center">
 
-        <div class="col-lg-10 filter-card warm-up">
+        <!-- 1. Warm-up Card -->
+        <div class="col-lg-10" id="card-warmup">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">1. Warm-up: Dynamic Workout (pre-workout)</h3>
                 
@@ -119,11 +131,11 @@
             </div>
         </div>
 
-
-        <div class="col-lg-10 filter-card cool-down">
+        <!-- 2. Cool-Down Card (Notice the 'd-none' class added here!) -->
+        <div class="col-lg-10 d-none" id="card-cooldown">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">2. Cool-Down: Static Stretching (Post-Workout)</h3>
-        
+                
                 <div class="card-img-wrapper mb-4">
                     <img src="../assets/images/static-stretch.png" alt="Static Cool-Down" onerror="this.src='https://via.placeholder.com/800x300?text=Cool-Down+Static+Stretching+Image'">
                 </div>
@@ -143,21 +155,39 @@
         </div>
 
     </div>
-    <div class="container my-5">
-
-    <div class="alert alert-primary border shadow-sm text-center">
-
-        <strong>Tip:</strong>
-
-        Stretch regularly. Move better. Feel better
-
-    </div>
-
-</div>
 </section>
 
+<!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="stretchingandflexibiliy.js"></script>
+
+<!-- New Rock-Solid Filter Script -->
+<script>
+    function filterCategory(category, clickedElement) {
+        // 1. Reset buttons
+        let allButtons = document.querySelectorAll('.filter-btn');
+        allButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        
+        // Make clicked button active
+        clickedElement.classList.add('active');
+
+        // 2. Grab our exact cards
+        let warmupCard = document.getElementById('card-warmup');
+        let cooldownCard = document.getElementById('card-cooldown');
+
+        // 3. Add Bootstrap's invisible 'd-none' class to BOTH cards first to clear the screen
+        warmupCard.classList.add('d-none');
+        cooldownCard.classList.add('d-none');
+
+        // 4. Remove 'd-none' from the ONE card we want to show
+        if (category === 'warm-up') {
+            warmupCard.classList.remove('d-none');
+        } else if (category === 'cool-down') {
+            cooldownCard.classList.remove('d-none');
+        }
+    }
+</script>
 
 </body>
 </html>
