@@ -14,28 +14,41 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid px-lg-5">
-        <a class="navbar-brand fw-bold fs-3" href="../index.html">SPFIT</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto fs-5">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="joinus.html">Join Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="begworkout.html">Workouts</a></li>
-                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
-                <li class="nav-item"><a class="nav-link" href="tips.html">Tips</a></li>
-                <li class="nav-item"><a class="nav-link" href="workoutTable.html">Planner</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link active" href="stretching.html">Activity</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
 
+    <li class="dropdown">
+      <p class="dropdownText">About</p>
+      <ul class="dropdownItems">
+        <li><a href="html/aboutus.html">About Us</a></li>
+        <li><a href="html/connect.html">Contact Us</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <p class="dropdownText">Workouts</p>
+      <ul class="dropdownItems">
+        <li><a href="html/begworkout.html">Beginner Workout</a></li>
+        <li><a href="html/strength.html">Strength Training</a></li>
+        <li><a href="html/cardio.html">Cardio Exercise</a></li>
+        <li><a href="html/stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <p class="dropdownText">Resources</p>
+      <ul class="dropdownItems">
+        <li><a href="html/nutrition.html">Healthy Nutrition</a></li>
+        <li><a href="html/tips.html">Fitness Tips</a></li>
+        <li><a href="html/workoutTable.html">Workout Planner</a></li>
+        <li><a href="html/gallery.html">Workout Gallery</a></li>
+      </ul>
+    </li>
+
+    <li><a href="html/mainActivity.html">Fitness Activity</a></li>
+  </ul>
+</nav>
 <!-- Header Section: Why Do We Stretch? -->
 <section class="container-xl text-center py-5">
     <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
