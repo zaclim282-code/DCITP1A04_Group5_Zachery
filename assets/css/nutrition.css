@@ -1,0 +1,29 @@
+body{
+    background:#fdfefe;
+    font-family:Arial, sans-serif;
+}
+
+.card{
+    border-radius:12px;
+    transition:0.3s;
+    border: 2px solid #151515 !important;
+
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
+    border: 2px solid #151515 !important;
+
+}
+
+.card i{
+    color:#014dff;
+    border: 2px solid #151515 !important;
+
+}
+
+.btn-success{
+    padding:12px 40px;
+    font-size:20px;
+}
