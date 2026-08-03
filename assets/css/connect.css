@@ -184,39 +184,6 @@ a {
   background-color: #dcfce7;
   color: #15803d;
 }
-/* ---------- Hero ---------- */
-.hero-section {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #e2f3e8 0%, #cfead8 50%, #b9dfc8 100%);
-}
-
-.hero-section h1 {
-    font-size: 2.6rem;
-    margin-bottom: 12px;
-}
-
-.hero-section h3 {
-    font-weight: 500;
-    color: #4a4a5a;
-    margin-bottom: 28px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.hero-buttons button {
-    border-radius: 30px;
-    padding: 12px 28px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.25s ease;
-}
 
 #Workoutbtn {
     background: var(--dark);
