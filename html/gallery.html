@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPFIT - Workout Gallery</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Minimal custom CSS -->
+    <style>
+        body {
+            background-color: #fcfcfc;
+        }
+        .gallery-item {
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+        .img-square {
+            aspect-ratio: 1 / 1;
+        }
+        
+        /* Custom Orange Theme Classes */
+        .bg-orange {
+            background-color: #fd7e14 !important;
+        }
+        .text-orange {
+            color: #fd7e14 !important;
+        }
+        .border-orange {
+            border-color: #fd7e14 !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bootstrap Navbar (Updated to Orange) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-orange border-bottom py-3 shadow-sm">
+    <div class="container-fluid px-4 px-lg-5">
+        
+        <!-- Logo Section -->
+        <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
+            <button class="btn btn-outline-light fw-bold px-2 py-0 lh-sm" disabled>SP<br>FIT</button>
+            <span class="fs-3 fw-bold mb-0 text-white">SPFIT</span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+            <ul class="navbar-nav gap-3 fw-semibold">
+                <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
+                
+                <!-- About Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="joinus.html">Contact Us</a></li>
+                    </ul>
+                </li>
+
+                <!-- Workouts Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Workouts</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="begworkout.html">Beginner Workout</a></li>
+                        <li><a class="dropdown-item" href="strength.html">Strength Training</a></li>
+                        <li><a class="dropdown-item" href="cardio.html">Cardio Exercise</a></li>
+                        <li><a class="dropdown-item" href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+                    </ul>
+                </li>
+
+                <!-- Resources Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="nutrition.html">Healthy Nutrition</a></li>
+                        <li><a class="dropdown-item" href="tips.html">Fitness Tips</a></li>
+                        <li><a class="dropdown-item" href="workoutTable.html">Workout Planner</a></li>
+                        <li><a class="dropdown-item" href="gallery.html">Workout Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link text-white" href="mainActivity.html">Fitness Activity</a></li>
+            </ul>
+        </div>
+
+        <!-- Login Button -->
+        <button class="btn btn-light text-orange fw-bold d-none d-lg-block">Login / Join</button>
+    </div>
+</nav>
+
+<!-- Heading -->
+<section class="container text-center my-5">
+    <h2 class="display-6 fw-bold">Workout Gallery</h2>
+    <p class="text-muted fs-5 mb-4">Explore exercises and proper techniques.</p>
+    <p class="text-secondary mx-auto" style="max-width: 800px;">
+        This image gallery shows different workout demonstrations, exercise techniques, and fitness activities. Users can browse images to better understand proper exercise form and movements.
+    </p>
+</section>
+
+<!-- Filter Buttons -->
+<div class="container mb-5">
+    <div class="nav nav-pills justify-content-center gap-2" id="gallery-filters">
+        <button class="filter-btn nav-link active border px-4 py-2 text-dark" onclick="filterGallery('all', this)">All</button>
+        <button class="filter-btn nav-link border px-4 py-2 text-dark bg-white" onclick="filterGallery('strength', this)">Strength</button>
+        <button class="filter-btn nav-link border px-4 py-2 text-dark bg-white" onclick="filterGallery('cardio', this)">Cardio</button>
+        <button class="filter-btn nav-link border px-4 py-2 text-dark bg-white" onclick="filterGallery('flexibility', this)">Flexibility</button>
+        <button class="filter-btn nav-link border px-4 py-2 text-dark bg-white" onclick="filterGallery('hiit', this)">HIIT</button>
+        <button class="filter-btn nav-link border px-4 py-2 text-dark bg-white" onclick="filterGallery('other', this)">Other</button>
+    </div>
+</div>
+
+<!-- Gallery Grid -->
+<section class="container mb-5">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center text-center" id="gallery-grid">
+
+        <!-- Image 1 -->
+        <div class="col gallery-item strength">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Squat" class="w-100 rounded-1 object-fit-cover img-square" alt="Squat Demonstration">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Squat</span>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="col gallery-item cardio">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Running" class="w-100 rounded-1 object-fit-cover img-square" alt="Running Technique">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Running</span>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="col gallery-item flexibility">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Lunge+Stretch" class="w-100 rounded-1 object-fit-cover img-square" alt="Lunge Stretch">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Stretch</span>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="col gallery-item hiit">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Burpees" class="w-100 rounded-1 object-fit-cover img-square" alt="Burpee Form">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Burpee</span>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="col gallery-item strength">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Deadlift" class="w-100 rounded-1 object-fit-cover img-square" alt="Deadlift Proper Form">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Deadlift</span>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="col gallery-item other">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Yoga" class="w-100 rounded-1 object-fit-cover img-square" alt="Yoga Pose">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Yoga</span>
+        </div>
+
+        <!-- Image 7 -->
+        <div class="col gallery-item strength">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Push+Up" class="w-100 rounded-1 object-fit-cover img-square" alt="Push Up Form">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Push Up</span>
+        </div>
+
+        <!-- Image 8 -->
+        <div class="col gallery-item cardio">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Cycling" class="w-100 rounded-1 object-fit-cover img-square" alt="Cycling Posture">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Cycling</span>
+        </div>
+
+        <!-- Image 9 -->
+        <div class="col gallery-item flexibility">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Hamstring" class="w-100 rounded-1 object-fit-cover img-square" alt="Hamstring Stretch">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Hamstring</span>
+        </div>
+
+        <!-- Image 10 -->
+        <div class="col gallery-item hiit">
+            <div class="p-1 bg-white border rounded-2 shadow-sm mb-2">
+                <img src="https://via.placeholder.com/300?text=Kettlebell" class="w-100 rounded-1 object-fit-cover img-square" alt="Kettlebell Swing">
+            </div>
+            <span class="badge rounded-pill text-bg-light border text-secondary px-4 py-2 fw-semibold">Kettlebell</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer Tips Alert (Updated to Orange) -->
+<div class="container my-5">
+    <div class="alert bg-white border border-2 border-orange rounded-4 text-center py-4 shadow-sm text-dark">
+        <span class="fs-4 me-2 align-middle text-orange">ⓘ</span> Images for reference only. <strong>Always use proper form.</strong>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Javascript for Filtering -->
+<script>
+    function filterGallery(category, clickedButton) {
+        // 1. Reset active styling on all buttons
+        let buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(function(btn) {
+            btn.classList.remove('active');
+            btn.classList.add('bg-white');
+        });
+
+        // 2. Add active styling to the clicked button
+        clickedButton.classList.add('active');
+        clickedButton.classList.remove('bg-white');
+
+        // 3. Show/Hide gallery items using Bootstrap's d-none class
+        let items = document.querySelectorAll('.gallery-item');
+        items.forEach(function(item) {
+            if (category === 'all') {
+                item.classList.remove('d-none');
+            } else if (item.classList.contains(category)) {
+                item.classList.remove('d-none');
+            } else {
+                item.classList.add('d-none');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
