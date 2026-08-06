@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPFIT - Strength Training</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/rex.css">
+</head>
+<body class="section-fitness">
+
+<nav class="navbar navbar-expand-lg navbar-accent nav-strength-red sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+      <span class="logo-btn d-inline-flex align-items-center justify-content-center text-center">SP<br>FIT</span>
+      <span class="fw-bold fs-4">SPFIT</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+            <li><a class="dropdown-item" href="connect.html">Contact Us</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Workouts</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="begworkout.html">Beginner Workout</a></li>
+            <li><a class="dropdown-item active" href="strength.html">Strength Training</a></li>
+            <li><a class="dropdown-item" href="cardio.html">Cardio Exercise</a></li>
+            <li><a class="dropdown-item" href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="nutrition.html">Healthy Nutrition</a></li>
+            <li><a class="dropdown-item" href="tips.html">Fitness Tips</a></li>
+            <li><a class="dropdown-item" href="workoutTable.html">Workout Planner</a></li>
+            <li><a class="dropdown-item" href="gallery.html">Workout Gallery</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="mainActivity.html">Fitness Activity</a></li>
+      </ul>
+      <button type="button" class="btn btn-outline-accent rounded-pill">Login / Join</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-section text-center">
+  <h1 class="fw-bold display-5">Strength Training</h1>
+  <h3 class="fw-normal text-secondary">Build muscle and get stronger, one rep at a time</h3>
+</section>
+
+<!-- Find your focus quiz -->
+<section class="py-5">
+  <div class="container" style="max-width:640px;">
+    <h2 class="text-center mb-2">Find Your Strength Focus</h2>
+    <p class="text-center text-secondary mb-4">Three quick questions, then we'll filter the list below to what matters most for you today.</p>
+
+    <form id="strengthQuiz" class="card border-0 shadow-sm p-4">
+      <div class="mb-4">
+        <p class="fw-semibold mb-2">1. Which describes your day-to-day the best?</p>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1a" value="upper"><label class="form-check-label" for="q1a">Lots of typing, driving, or sitting at a desk</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1b" value="lower"><label class="form-check-label" for="q1b">On my feet most of the day</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1c" value="core"><label class="form-check-label" for="q1c">Mixed — a bit of both</label></div>
+      </div>
+
+      <div class="mb-4">
+        <p class="fw-semibold mb-2">2. What bothers you most right now?</p>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2a" value="upper"><label class="form-check-label" for="q2a">Weak grip, arms, or shoulders</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2b" value="lower"><label class="form-check-label" for="q2b">Tired legs or weak knees on stairs</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2c" value="core"><label class="form-check-label" for="q2c">Lower back tightness or poor balance</label></div>
+      </div>
+
+      <div class="mb-4">
+        <p class="fw-semibold mb-2">3. Pick a goal for this month</p>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3a" value="upper"><label class="form-check-label" for="q3a">Bench press with confidence</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3b" value="lower"><label class="form-check-label" for="q3b">Squat with a barbell, proper depth</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3c" value="core"><label class="form-check-label" for="q3c">Complete a full set of hanging leg raises</label></div>
+      </div>
+
+      <button type="submit" class="btn btn-accent rounded-pill">See my focus</button>
+      <div id="quizResult" class="d-none"></div>
+    </form>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <p class="text-center text-secondary mb-3">Or just browse everything below and filter by area.</p>
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+      <button type="button" class="btn filter-btn active rounded-pill px-3" data-filter="all">All</button>
+      <button type="button" class="btn filter-btn rounded-pill px-3" data-filter="upper">Upper Body</button>
+      <button type="button" class="btn filter-btn rounded-pill px-3" data-filter="lower">Lower Body</button>
+      <button type="button" class="btn filter-btn rounded-pill px-3" data-filter="core">Core</button>
+    </div>
+
+    <div class="row g-4" id="exerciseGrid">
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="upper" data-exercise="benchpress">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="22" y="66" width="46" height="10" rx="2"/>
+              <circle cx="30" cy="64" r="6" fill="currentColor" stroke="none"/>
+              <path d="M36 64 L58 66"/>
+              <path d="M45 62 L45 38"/>
+              <path d="M55 63 L55 38"/>
+              <line x1="16" y1="38" x2="84" y2="38" stroke-width="5"/>
+              <circle cx="16" cy="38" r="9"/>
+              <circle cx="84" cy="38" r="9"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Upper Body</span>
+          <h4 class="h5">Barbell Bench Press</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">4 sets &middot; 6-10 reps</p>
+          <p class="text-secondary small mb-3">Lower the bar to your mid-chest with control, keep your shoulder blades pinned back, and drive it back up.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="benchpress">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="upper" data-exercise="latpulldown">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="50" cy="10" r="5"/>
+              <path d="M50 15 L50 32"/>
+              <path d="M28 32 L72 32"/>
+              <circle cx="50" cy="46" r="7" fill="currentColor" stroke="none"/>
+              <path d="M50 53 L50 78"/>
+              <path d="M50 58 L34 32"/>
+              <path d="M50 58 L66 32"/>
+              <path d="M50 78 L38 92"/>
+              <path d="M50 78 L62 92"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Upper Body</span>
+          <h4 class="h5">Lat Pulldown</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 10-12 reps</p>
+          <p class="text-secondary small mb-3">Pull the bar down toward your upper chest, leading with your elbows, then let it rise back under control.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="latpulldown">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="upper" data-exercise="barbellshoulderpress">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="50" cy="18" r="7" fill="currentColor" stroke="none"/>
+              <path d="M50 25 L50 58"/>
+              <path d="M50 58 L38 90"/>
+              <path d="M50 58 L62 90"/>
+              <path d="M50 32 L50 14"/>
+              <line x1="25" y1="14" x2="75" y2="14" stroke-width="5"/>
+              <circle cx="25" cy="14" r="8"/>
+              <circle cx="75" cy="14" r="8"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Upper Body</span>
+          <h4 class="h5">Barbell Overhead Press</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 6-8 reps</p>
+          <p class="text-secondary small mb-3">Press the bar straight up from your shoulders, keeping your ribs down and core braced the whole way.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="barbellshoulderpress">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="lower" data-exercise="backsquat">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="50" cy="16" r="7" fill="currentColor" stroke="none"/>
+              <line x1="24" y1="26" x2="76" y2="26" stroke-width="5"/>
+              <circle cx="24" cy="26" r="8"/>
+              <circle cx="76" cy="26" r="8"/>
+              <path d="M50 30 L50 48"/>
+              <path d="M50 48 L32 60"/>
+              <path d="M50 48 L68 60"/>
+              <path d="M32 60 L36 86"/>
+              <path d="M68 60 L64 86"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Lower Body</span>
+          <h4 class="h5">Barbell Back Squat</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">4 sets &middot; 6-10 reps</p>
+          <p class="text-secondary small mb-3">Rest the bar across your upper back, sit down and back between your hips, and drive up through your heels.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="backsquat">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="lower" data-exercise="legpress">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 88 L40 40 L86 40" stroke-width="4"/>
+              <circle cx="30" cy="58" r="7" fill="currentColor" stroke="none"/>
+              <path d="M30 65 L24 82"/>
+              <path d="M30 65 L52 74"/>
+              <path d="M52 74 L74 52"/>
+              <rect x="72" y="34" width="8" height="36" rx="2"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Lower Body</span>
+          <h4 class="h5">Leg Press</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 10-15 reps</p>
+          <p class="text-secondary small mb-3">Push the platform away until your legs are nearly straight, then lower it back under control without locking your knees hard.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="legpress">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="lower" data-exercise="romaniandeadlift">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="28" cy="22" r="7" fill="currentColor" stroke="none"/>
+              <path d="M28 28 L55 50"/>
+              <path d="M55 50 L52 85"/>
+              <path d="M55 50 L66 85"/>
+              <path d="M40 38 L38 70"/>
+              <line x1="20" y1="70" x2="56" y2="70" stroke-width="5"/>
+              <circle cx="20" cy="70" r="8"/>
+              <circle cx="56" cy="70" r="8"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Lower Body</span>
+          <h4 class="h5">Romanian Deadlift</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 8-10 reps</p>
+          <p class="text-secondary small mb-3">Push your hips back with a soft knee bend, keep the bar close to your legs, and stop once you feel a hamstring stretch.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="romaniandeadlift">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="core" data-exercise="cablewoodchop">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="82" cy="14" r="5"/>
+              <path d="M82 19 L46 52"/>
+              <circle cx="46" cy="52" r="7" fill="currentColor" stroke="none"/>
+              <path d="M46 59 L36 88"/>
+              <path d="M46 59 L58 88"/>
+              <path d="M46 62 L20 76"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Core</span>
+          <h4 class="h5">Cable Woodchopper</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 12 reps per side</p>
+          <p class="text-secondary small mb-3">Rotate through your torso, not just your arms, pulling the cable diagonally from high to low across your body.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="cablewoodchop">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="core" data-exercise="hanginglegraise">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="14" y1="12" x2="86" y2="12" stroke-width="5"/>
+              <path d="M38 12 L38 22"/>
+              <path d="M62 12 L62 22"/>
+              <circle cx="50" cy="30" r="7" fill="currentColor" stroke="none"/>
+              <path d="M50 37 L50 56"/>
+              <path d="M50 56 L34 40"/>
+              <path d="M50 56 L66 40"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Core</span>
+          <h4 class="h5">Hanging Leg Raise</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 10-12 reps</p>
+          <p class="text-secondary small mb-3">Hang from the bar and curl your legs up using your lower abs, not momentum, then lower them slowly.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="hanginglegraise">More Details</button>
+        </div>
+      </div>
+
+      <div class="col-md-4 exercise-col">
+        <div class="exercise-card card h-100 p-3 border-0 shadow-sm" data-category="core" data-exercise="declinesitup">
+          <div class="card-image-placeholder mb-3">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 30 L90 66" stroke-width="4"/>
+              <circle cx="34" cy="42" r="7" fill="currentColor" stroke="none"/>
+              <path d="M34 48 L54 54"/>
+              <path d="M54 54 L70 40"/>
+              <path d="M54 54 L74 68"/>
+              <path d="M54 54 L58 78"/>
+            </svg>
+          </div>
+          <span class="accent-tag mb-2">Core</span>
+          <h4 class="h5">Decline Weighted Sit-Up</h4>
+          <p class="fw-semibold small mb-2" style="color:var(--accent-700);">3 sets &middot; 12-15 reps</p>
+          <p class="text-secondary small mb-3">Hold a plate to your chest and curl up smoothly from your ribs, exhaling on the way up, without yanking your neck.</p>
+          <button type="button" class="btn btn-outline-accent btn-sm rounded-pill detail-btn mt-auto" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="declinesitup">More Details</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Exercise details modal (content injected by main.js) -->
+<div class="modal fade" id="exerciseModal" tabindex="-1" aria-labelledby="exerciseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background:var(--accent-50); border-bottom:1px solid var(--accent-200);">
+        <h5 class="modal-title" id="exerciseModalLabel" style="color:var(--accent-800);">Exercise</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="exerciseModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-white py-5">
+  <div class="container quote-carousel mx-auto text-center" style="max-width:700px;">
+    <h3 class="mb-4">Daily Motivation</h3>
+    <div id="quoteCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner mb-3">
+        <div class="carousel-item active">
+          <blockquote class="blockquote">"The only bad workout is the one that didn't happen."</blockquote>
+          <figcaption class="blockquote-footer mb-0">Unknown</figcaption>
+        </div>
+        <div class="carousel-item">
+          <blockquote class="blockquote">"Take care of your body. It's the only place you have to live."</blockquote>
+          <figcaption class="blockquote-footer mb-0">Jim Rohn</figcaption>
+        </div>
+        <div class="carousel-item">
+          <blockquote class="blockquote">"Success starts with self-discipline."</blockquote>
+          <figcaption class="blockquote-footer mb-0">Unknown</figcaption>
+        </div>
+        <div class="carousel-item">
+          <blockquote class="blockquote">"Small steps every day add up to big results."</blockquote>
+          <figcaption class="blockquote-footer mb-0">Unknown</figcaption>
+        </div>
+        <div class="carousel-item">
+          <blockquote class="blockquote">"Your body can stand almost anything. It's your mind you have to convince."</blockquote>
+          <figcaption class="blockquote-footer mb-0">Unknown</figcaption>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center gap-3">
+        <button class="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">&#10094;</button>
+        <button class="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/rex.js"></script>
+</body>
+</html>

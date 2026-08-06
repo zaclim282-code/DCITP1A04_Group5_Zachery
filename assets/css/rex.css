@@ -1,0 +1,153 @@
+/* ============================================================
+   SPFIT — theme layer on top of Bootstrap 5.
+   Bootstrap handles layout/grid/components; this file only
+   carries brand color + the handful of things Bootstrap
+   doesn't do (flip cards, hero gradient, quiz, planner).
+
+   Color system: each page picks ONE section class on <body>.
+   Everything below reads --accent-* instead of a hardcoded
+   color, so the same rules repaint per section automatically.
+     .section-general  (Home, About)             → green  — vitality
+     .section-fitness  (Beginner/Strength/Cardio) → red    — energy
+     .section-health   (Nutrition/Tips/Gallery)   → blue   — vitality
+     .section-planning (Workout Planner)          → orange — energy
+   ============================================================ */
+
+:root {
+  --dark: #2d2d3a;
+  --soft-gray: #f7f5fa;
+
+  /* fallback accent = general/green, so unclassed elements still work */
+  --accent-50: #f0fdf4;  --accent-100: #dcfce7; --accent-200: #bbf7d0;
+  --accent-500: #22c55e; --accent-600: #16a34a; --accent-700: #15803d; --accent-800: #166534;
+}
+
+.section-general {
+  --accent-50: #f0fdf4;  --accent-100: #dcfce7; --accent-200: #bbf7d0;
+  --accent-500: #22c55e; --accent-600: #16a34a; --accent-700: #15803d; --accent-800: #166534;
+}
+.section-fitness {
+  --accent-50: #fef2f2;  --accent-100: #fee2e2; --accent-200: #fecaca;
+  --accent-500: #ef4444; --accent-600: #dc2626; --accent-700: #b91c1c; --accent-800: #991b1b;
+}
+.section-health {
+  --accent-50: #eff6ff;  --accent-100: #dbeafe; --accent-200: #bfdbfe;
+  --accent-500: #3b82f6; --accent-600: #2563eb; --accent-700: #1d4ed8; --accent-800: #1e40af;
+}
+.section-planning {
+  --accent-50: #fff7ed;  --accent-100: #ffedd5; --accent-200: #fed7aa;
+  --accent-500: #f97316; --accent-600: #ea580c; --accent-700: #c2410c; --accent-800: #9a3412;
+}
+
+body {
+  background: var(--soft-gray);
+  color: var(--dark);
+  font-family: 'Segoe UI', 'DM Sans', sans-serif;
+}
+
+/* ---------- Header / brand ---------- */
+.logo-btn {
+  background: var(--accent-700);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: .7rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.btn-accent { background: var(--accent-700); border-color: var(--accent-700); color: #fff; }
+.btn-accent:hover { background: var(--accent-800); border-color: var(--accent-800); color: #fff; }
+
+.btn-outline-accent { background: transparent; border: 2px solid var(--accent-700); color: var(--accent-700); }
+.btn-outline-accent:hover { background: var(--accent-700); color: #fff; }
+
+.navbar-accent { background: var(--accent-100) !important; }
+.navbar-accent .nav-link { color: var(--dark); font-weight: 600; }
+.navbar-accent .nav-link.active,
+.navbar-accent .nav-link:hover { color: var(--accent-800); }
+.navbar-accent .dropdown-item.active,
+.navbar-accent .dropdown-item:hover { background: var(--accent-50); color: var(--accent-700); }
+
+/* Strength page only: override just the nav bar's background color */
+.navbar-accent.nav-strength-red { background-color: #ff0000 !important; }
+
+/* ---------- Hero ---------- */
+.hero-section {
+  background: linear-gradient(135deg, var(--accent-50) 0%, var(--accent-100) 50%, var(--accent-200) 100%);
+  padding: 70px 20px;
+}
+
+/* ---------- Cards / tags shared across pages ---------- */
+.card-image-placeholder {
+  height: 160px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-200), var(--accent-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+.card-image-placeholder svg { width: 70%; height: 70%; color: var(--accent-700); }
+
+/* ---------- More Details button ---------- */
+.detail-btn { border-width: 2px; font-weight: 600; }
+
+.accent-tag {
+  display: inline-block;
+  background: var(--accent-100);
+  color: var(--accent-800);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ---------- Filter pills (Strength page) ---------- */
+.filter-btn.active { background: var(--accent-700); border-color: var(--accent-700); color: #fff; }
+.filter-btn { border-color: var(--accent-200); color: var(--accent-800); }
+.filter-btn:hover { border-color: var(--accent-500); }
+
+/* ---------- Team flip cards (About) — Bootstrap has no 3D flip ---------- */
+.flip-card { perspective: 1000px; cursor: pointer; height: 240px; border: none; background: transparent; width: 100%; }
+.flip-inner { position: relative; width: 100%; height: 100%; transition: transform .7s cubic-bezier(.4,0,.2,1); transform-style: preserve-3d; }
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; }
+.flip-front { background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+.flip-front img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+.flip-back { background: var(--accent-600); color: #fff; transform: rotateY(180deg); display: flex; align-items: center; justify-content: center; padding: 1.2rem; text-align: center; font-size: .9rem; }
+
+/* ---------- Strength quiz ---------- */
+.quiz-option.selected { background: var(--accent-100); border-color: var(--accent-600) !important; }
+#quizResult { border-left: 4px solid var(--accent-600); background: var(--accent-50); }
+
+/* ---------- Workout planner ---------- */
+.planner-table select:focus,
+.planner-table input:focus { border-color: var(--accent-500); box-shadow: 0 0 0 .2rem var(--accent-100); }
+.planner-remove { color: #b91c1c; background: none; border: none; }
+#planStats .stat-num { color: var(--accent-700); font-weight: 800; font-size: 1.5rem; }
+
+/* ---------- Footer quote (Bootstrap carousel) ---------- */
+.quote-carousel blockquote { font-style: italic; font-size: 1.1rem; }
+.quote-carousel figcaption { color: var(--accent-500); font-weight: 600; }
+.quote-carousel .carousel-control-prev,
+.quote-carousel .carousel-control-next { position: static; width: 40px; height: 40px; background: rgba(255,255,255,.1); border-radius: 50%; opacity: 1; }
+.quote-carousel .carousel-control-prev:hover,
+.quote-carousel .carousel-control-next:hover { background: rgba(255,255,255,.25); }
+
+/* ---------- Print (Workout Planner) ---------- */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; color: #000; }
+  .hero-section { background: none !important; padding: 10px 0 20px; }
+  .planner-table th { color: #000 !important; }
+  .table-responsive { box-shadow: none !important; border: 1px solid #ccc; }
+  select, input { border: none !important; box-shadow: none !important; -webkit-appearance: none; appearance: none; background: transparent !important; }
+  .planner-remove { display: none !important; }
+  #planStats .stat-num { color: #000 !important; }
+}
