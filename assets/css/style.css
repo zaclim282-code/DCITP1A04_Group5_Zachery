@@ -1,5 +1,5 @@
 :root {
-    --pink: #4aa16d;
+    --green: #4aa16d;
     --blue: #d4e8f7;
     --sp-bg-soft:#98beab;
     --lavender: #e8dff5;
@@ -106,13 +106,13 @@ a {
 }
 
 .main-nav {
-    background: var(--pink);
+    background: var(--green);
 }
 
 /* Dropdown arrow styling & rotation */
 /* --- MAIN NAVIGATION BAR --- */
 .main-nav {
-  background-color: var(--pink, #91cf64);
+  background-color: var(--green,#4aa16d);
   width: 100%;
 }
 

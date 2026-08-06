@@ -10,54 +10,40 @@
     
     <!-- External Custom CSS -->
     <link rel="stylesheet" href="stretch.css">
-       <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="main-nav">
-  <ul>
-    <li><a href="../index.html">Home</a></li>
-
-    <li class="dropdown">
-      <p class="dropdownText">About</p>
-      <ul class="dropdownItems">
-        <li><a href="html/aboutus.html">About Us</a></li>
-        <li><a href="html/connect.html">Contact Us</a></li>
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <p class="dropdownText">Workouts</p>
-      <ul class="dropdownItems">
-        <li><a href="html/begworkout.html">Beginner Workout</a></li>
-        <li><a href="html/strength.html">Strength Training</a></li>
-        <li><a href="html/cardio.html">Cardio Exercise</a></li>
-        <li><a href="html/stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
-      </ul>
-    </li>
-
-    <li class="dropdown">
-      <p class="dropdownText">Resources</p>
-      <ul class="dropdownItems">
-        <li><a href="html/nutrition.html">Healthy Nutrition</a></li>
-        <li><a href="html/tips.html">Fitness Tips</a></li>
-        <li><a href="html/workoutTable.html">Workout Planner</a></li>
-        <li><a href="html/gallery.html">Workout Gallery</a></li>
-      </ul>
-    </li>
-
-    <li><a href="html/mainActivity.html">Fitness Activity</a></li>
-  </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid px-lg-5">
+        <a class="navbar-brand fw-bold fs-3" href="../index.html">SPFIT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fs-5">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="joinus.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="begworkout.html">Workouts</a></li>
+                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
+                <li class="nav-item"><a class="nav-link" href="tips.html">Tips</a></li>
+                <li class="nav-item"><a class="nav-link" href="workoutTable.html">Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="stretching.html">Activity</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
+<!-- Header Section: Why Do We Stretch? -->
 <section class="container-xl text-center py-5">
     <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
     <p class="mt-4 fs-5 text-secondary mx-auto" style="max-width: 900px;">
         Stretching and mobility work are essential for maintaining healthy, functional joints and muscles. When we exercise, our muscles contract and undergo stress. These issues may seem unimportant, but without a proper stretching routine:
     </p>
 
-    
+    <!-- Risk Factors Cards -->
     <div class="row g-4 mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card h-100 shadow-sm border-2 p-3 text-start">
@@ -91,19 +77,22 @@
         </p>
     </div>
 
-    <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4" id="filter-buttons">
+    <!-- Filter Buttons -->
+    <div class="d-flex justify-content-center gap-3 nav nav-pills mb-4">
         <button class="filter-btn nav-link active px-4 py-2 fs-5" onclick="filterCategory('warm-up', this)">Warm-Up</button>
         <button class="filter-btn nav-link px-4 py-2 fs-5" onclick="filterCategory('cool-down', this)">Cool-Down</button>
     </div>
 
-    <div class="row justify-content-center" id="stretch-content">
+    <!-- Filtered Content Display -->
+    <div class="row justify-content-center">
 
-        <div class="col-lg-10 filter-card warm-up">
+        <!-- 1. Warm-up Card -->
+        <div class="col-lg-10" id="card-warmup">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">1. Warm-up: Dynamic Workout (pre-workout)</h3>
                 
                 <div class="card-img-wrapper mb-4">
-                    <img src="../assets/images/dynamic-warmup.png" alt="Dynamic Warm-up" onerror="this.src='https://via.placeholder.com/800x300?text=Warm-Up+Dynamic+Stretching+Image'">
+                    <img src="image/stretchdyna.jpg" alt="Dynamic Warm-up" onerror="this.src='https://via.placeholder.com/800x300?text=Warm-Up+Dynamic+Stretching+Image'">
                 </div>
 
                 <div class="card-body p-0 fs-5">
@@ -120,11 +109,11 @@
             </div>
         </div>
 
-
-        <div class="col-lg-10 filter-card cool-down">
+        <!-- 2. Cool-Down Card (Notice the 'd-none' class added here!) -->
+        <div class="col-lg-10 d-none" id="card-cooldown">
             <div class="card shadow border-2 p-4 mb-4">
                 <h3 class="card-title fw-bold text-primary mb-3">2. Cool-Down: Static Stretching (Post-Workout)</h3>
-        
+                
                 <div class="card-img-wrapper mb-4">
                     <img src="../assets/images/static-stretch.png" alt="Static Cool-Down" onerror="this.src='https://via.placeholder.com/800x300?text=Cool-Down+Static+Stretching+Image'">
                 </div>
@@ -144,21 +133,13 @@
         </div>
 
     </div>
-    <div class="container my-5">
-
-    <div class="alert alert-primary border shadow-sm text-center">
-
-        <strong>Tip:</strong>
-
-        Stretch regularly. Move better. Feel better
-
-    </div>
-
-</div>
 </section>
 
+<!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="stretchingandflexibiliy.js"></script>
 
+<script src="stretch.js"></script>
+<script src='../assets/js/main.js'></script>
+<script src='../assets/js/beginnerworkout.js'></script>
 </body>
 </html>

@@ -200,6 +200,37 @@ a {
     transform: scale(1.05);
 }
 
+/* ---------- Contact Card (Get In Touch) ---------- */
+.contact-card {
+  background-color: #4aa16d;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.contact-icon {
+  color: #e63946;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #3cd44d;
+  color: #090909;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.social-icon:hover {
+  background-color: #fefefe;
+  transform: translateY(-4px);
+}
 /* ---------- Features ---------- */
 .features-section {
     padding: 70px 20px;
@@ -208,6 +239,7 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding-top: 75px ;
 }
 
 .features-grid {

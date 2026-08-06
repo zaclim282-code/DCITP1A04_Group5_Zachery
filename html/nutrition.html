@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+    <body class="bg-primary-subtle">
 
 <!-- Navigation -->
 <header class="site-header">
     <div class="top-bar">
-      <button type="button" class="logo-btn">SP<br>FIT</button>
-      <h1 class="brand-title">SPFIT</h1>
-      <button type="button" class="login-btn">Login / Join</button>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <button class="logo-btn">SP</button>
+            <span class="brand-title">SPFIT</span>
+        </div>
+        <a href="../html/connect.html" class="login-btn">Login / Join</a>
     </div>
-</header>
 
-<nav class="main-nav">
-  <ul>
+<nav class="main-nav" style="background-color: #0d6efd;">
+    <ul>
     <li><a href="../index.html">Home</a></li>
 
     <li class="dropdown">
@@ -73,7 +75,7 @@
                         <h5>Breakfast</h5>
                         <p class="small text-muted mb-0">Tap to see ideas</p>
                     </div>
-                    <div class="flip-back">
+                    <div class="flip-back p-4 border rounded shadow-sm bg-primary text-white text-start ">
                         <p class="mb-0">Oatmeal with berries, Greek yogurt with granola, or eggs with whole-grain toast.</p>
                     </div>
                 </div>
@@ -89,7 +91,7 @@
                         <h5>Lunch</h5>
                         <p class="small text-muted mb-0">Tap to see ideas</p>
                     </div>
-                    <div class="flip-back">
+                    <div class="flip-back p-4 border rounded shadow-sm bg-primary text-white text-start">
                         <p class="mb-0">Grilled chicken salad, turkey wrap with veggies, or quinoa bowl with beans.</p>
                     </div>
                 </div>
@@ -105,7 +107,7 @@
                         <h5>Dinner</h5>
                         <p class="small text-muted mb-0">Tap to see ideas</p>
                     </div>
-                    <div class="flip-back">
+                    <div class="flip-back p-4 border rounded shadow-sm bg-primary text-white text-start">
                         <p class="mb-0">Baked salmon with roasted vegetables, stir-fry with brown rice, or lean beef with sweet potato.</p>
                     </div>
                 </div>
@@ -121,7 +123,7 @@
                         <h5>Snacks</h5>
                         <p class="small text-muted mb-0">Tap to see ideas</p>
                     </div>
-                    <div class="flip-back">
+                    <div class="flip-back p-4 border rounded shadow-sm bg-primary text-white text-start">
                         <p class="mb-0">Apple with peanut butter, mixed nuts, carrot sticks with hummus, or a hard-boiled egg.</p>
                     </div>
                 </div>
@@ -174,6 +176,8 @@
     </div>
 </section>
 
+<script src='../assets/js/main.js'></script>
+<script src='../assets/js/beginnerworkout.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/nutritionQuiz.js"></script>

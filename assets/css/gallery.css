@@ -1,0 +1,24 @@
+  body {
+            background-color: #fcfcfc;
+        }
+        .gallery-item {
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+        .img-square {
+            aspect-ratio: 1 / 1;
+        }
+        
+        /* Custom Orange Theme Classes */
+        .bg-orange {
+            background-color: #fd7e14 !important;
+        }
+        .text-orange {
+            color: #fd7e14 !important;
+        }
+        .border-orange {
+            border-color: #fd7e14 !important;
+        }
