@@ -12,30 +12,66 @@
     <link rel="stylesheet" href="stretch.css">
 </head>
 <body>
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom py-3 shadow-sm">
+    <div class="container-fluid px-4 px-lg-5">
+        
+        <!-- Logo Section -->
+        <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
+            <button class="btn btn-outline-light fw-bold px-2 py-0 lh-sm" disabled>SP<br>FIT</button>
+            <span class="fs-3 fw-bold mb-0 text-white">SPFIT</span>
+        </a>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid px-lg-5">
-        <a class="navbar-brand fw-bold fs-3" href="../index.html">SPFIT</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto fs-5">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="joinus.html">Join Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="begworkout.html">Workouts</a></li>
-                <li class="nav-item"><a class="nav-link" href="nutrition.html">Nutrition</a></li>
-                <li class="nav-item"><a class="nav-link" href="tips.html">Tips</a></li>
-                <li class="nav-item"><a class="nav-link" href="workoutTable.html">Planner</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link active" href="stretching.html">Activity</a></li>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+            <ul class="navbar-nav gap-3 fw-semibold">
+                <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
+                
+                <!-- About Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                        <li><a class="dropdown-item" href="joinus.html">Contact Us</a></li>
+                    </ul>
+                </li>
+
+                <!-- Workouts Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Workouts</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="begworkout.html">Beginner Workout</a></li>
+                        <li><a class="dropdown-item" href="strength.html">Strength Training</a></li>
+                        <li><a class="dropdown-item" href="cardio.html">Cardio Exercise</a></li>
+                        <li><a class="dropdown-item" href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+                    </ul>
+                </li>
+
+                <!-- Resources Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+                    <ul class="dropdown-menu shadow-sm">
+                        <li><a class="dropdown-item" href="nutrition.html">Healthy Nutrition</a></li>
+                        <li><a class="dropdown-item" href="tips.html">Fitness Tips</a></li>
+                        <li><a class="dropdown-item" href="workoutTable.html">Workout Planner</a></li>
+                        <li><a class="dropdown-item" href="gallery.html">Workout Gallery</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link text-white" href="mainActivity.html">Fitness Activity</a></li>
             </ul>
         </div>
-    </div>
-</nav>
 
+        <!-- Login Button -->
+<a href="connect.html" class="btn btn-light text-primary fw-bold d-none d-lg-block">
+    Login / Join
+</a>
+</nav>
 <!-- Header Section: Why Do We Stretch? -->
 <section class="container-xl text-center py-5">
     <h1 class="display-3 fw-bold">Why Do We Stretch?</h1>
@@ -126,7 +162,7 @@
                         <strong>Why it prevents injury:</strong> After workouts, muscle fibres are shortened and inflamed. Holding static stretches signals the nervous system to relax and helps reset baseline muscle length, reducing chronic stiffness over time.
                     </p>
                     <p class="mb-0 text-primary fw-semibold">
-                        <strong>Duration:</strong> Holding positions (15–30 seconds per muscle)
+                        <strong>Duration:</strong> Holding positions (15-30 seconds per muscle)
                     </p>
                 </div>
             </div>
@@ -138,7 +174,7 @@
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="stretch.js"></script>
+<script src="../assets/js/stretch.js"></script>
 <script src='../assets/js/main.js'></script>
 <script src='../assets/js/beginnerworkout.js'></script>
 </body>

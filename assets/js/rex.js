@@ -6,12 +6,81 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initNavDropdowns();
   initFlipCards();
   initFilterButtons();
   initStrengthQuiz();
   initExerciseDetails();
   initWorkoutPlanner();
 });
+
+/* ---------- Site nav: dropdown toggles + active link highlighting ---------- */
+function initNavDropdowns() {
+  var nav = document.querySelector('.main-nav');
+  if (!nav) return;
+
+  var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  nav.querySelectorAll('a').forEach(function (link) {
+    var linkPath = (link.getAttribute('href') || '').split('/').pop();
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+      var parentDropdown = link.closest('.dropdown');
+      if (parentDropdown) {
+        var text = parentDropdown.querySelector('.dropdownText');
+        if (text) text.classList.add('active');
+      }
+    }
+  });
+
+  var dropdowns = nav.querySelectorAll('.dropdown');
+
+  function closeAllDropdowns() {
+    dropdowns.forEach(function (d) {
+      var items = d.querySelector('.dropdownItems');
+      if (items) items.classList.remove('active');
+      d.classList.remove('open');
+    });
+    nav.querySelectorAll('.dropdownText').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
+  }
+
+  dropdowns.forEach(function (dropdown) {
+    var text = dropdown.querySelector('.dropdownText');
+    var items = dropdown.querySelector('.dropdownItems');
+    if (!text || !items) return;
+
+    text.setAttribute('tabindex', '0');
+    text.setAttribute('role', 'button');
+    text.setAttribute('aria-expanded', 'false');
+
+    function toggle() {
+      var wasOpen = items.classList.contains('active');
+      closeAllDropdowns();
+      if (!wasOpen) {
+        items.classList.add('active');
+        dropdown.classList.add('open');
+        text.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    text.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggle();
+    });
+
+    text.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown')) {
+      closeAllDropdowns();
+    }
+  });
+}
 
 /* ---------- About page: flip cards ---------- */
 function initFlipCards() {
@@ -360,13 +429,12 @@ function initWorkoutPlanner() {
   }
 
   var clearBtn = document.getElementById('clearPlanBtn');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      if (window.confirm('Clear your entire weekly plan? This cannot be undone.')) {
-        plan = [];
-        renderRows();
-        savePlan();
-      }
+  var confirmClearBtn = document.getElementById('confirmClearBtn');
+  if (clearBtn && confirmClearBtn) {
+    confirmClearBtn.addEventListener('click', function () {
+      plan = [];
+      renderRows();
+      savePlan();
     });
   }
 

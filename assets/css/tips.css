@@ -1,0 +1,92 @@
+tips.css
+:root {
+    --dark: #2d2d3a;
+    --soft-gray: #f7f5fa;
+    --white: #ffffff;
+}
+
+body {
+    background: var(--soft-gray);
+    color: var(--dark);
+}
+
+/* Header Adjustments */
+.logo-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 0.7rem;
+    background: var(--dark);
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.login-btn {
+    border: 2px solid var(--dark);
+    color: var(--dark);
+    transition: all 0.25s ease;
+}
+
+.login-btn:hover {
+    background: var(--dark);
+    color: var(--white);
+}
+
+/* Dropdown Menu Popup */
+.dropdownItems {
+    display: none;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 190px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Hover reveal for desktop */
+.dropdown:hover .dropdownItems,
+.dropdownItems.active {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.dropdownItems a:hover {
+    background-color: #0d6efd;
+    color: #ffffff !important;
+}
+
+/* ---------- Flip Card 3D Effect ---------- */
+.flip-card {
+    perspective: 1000px;
+    min-height: 260px;
+}
+
+.flip-inner {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    backface-visibility: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+/* Responsive navigation adjustments */
+@media (max-width: 768px) {
+    .dropdownItems {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: var(--soft-gray);
+    }
+}

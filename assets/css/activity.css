@@ -1,0 +1,46 @@
+
+        body {
+            background-color: #fcfcfc;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .gallery-item {
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+        .img-square {
+            aspect-ratio: 1 / 1;
+        }
+        
+        /* Custom Orange Theme Classes */
+        .bg-orange {
+            background-color: #fd7e14 !important;
+        }
+        .text-orange {
+            color: #fd7e14 !important;
+        }
+        .border-orange {
+            border-color: #fd7e14 !important;
+        }
+
+        /* Card Styling to match wireframe */
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid #e0e0e0;
+        }
+        .btn-dark-custom {
+            background-color: #1a2332;
+            color: white;
+            border: none;
+        }
+        .btn-dark-custom:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .badge-icon {
+            font-size: 3rem;
+            color: #d1d5db;
+        }

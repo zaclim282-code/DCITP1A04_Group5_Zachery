@@ -5,57 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SPFIT - About Us</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/rex.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body class="section-general">
 
-<nav class="navbar navbar-expand-lg navbar-accent sticky-top">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
-      <span class="logo-btn d-inline-flex align-items-center justify-content-center text-center">SP<br>FIT</span>
-      <span class="fw-bold fs-4">SPFIT</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
-        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">About</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item active" href="aboutus.html">About Us</a></li>
-            <li><a class="dropdown-item" href="connect.html">Contact Us</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Workouts</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="begworkout.html">Beginner Workout</a></li>
-            <li><a class="dropdown-item" href="strength.html">Strength Training</a></li>
-            <li><a class="dropdown-item" href="cardio.html">Cardio Exercise</a></li>
-            <li><a class="dropdown-item" href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="nutrition.html">Healthy Nutrition</a></li>
-            <li><a class="dropdown-item" href="tips.html">Fitness Tips</a></li>
-            <li><a class="dropdown-item" href="workoutTable.html">Workout Planner</a></li>
-            <li><a class="dropdown-item" href="gallery.html">Workout Gallery</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="mainActivity.html">Fitness Activity</a></li>
-      </ul>
-      <button type="button" class="btn btn-outline-accent rounded-pill">Login / Join</button>
+<header class="site-header">
+  <div class="top-bar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="logo-btn" type="button">SP</button>
+      <span class="brand-title">SPFIT</span>
     </div>
+    <a href="connect.html" class="login-btn">Login / Join</a>
   </div>
-</nav>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <p class="dropdownText">About</p>
+        <ul class="dropdownItems">
+          <li><a href="aboutus.html" class="active">About Us</a></li>
+          <li><a href="connect.html">Contact Us</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <p class="dropdownText">Workouts</p>
+        <ul class="dropdownItems">
+          <li><a href="beginner.html">Beginner Workout</a></li>
+          <li><a href="strength.html">Strength Training</a></li>
+          <li><a href="cardio.html">Cardio Exercise</a></li>
+          <li><a href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <p class="dropdownText">Resources</p>
+        <ul class="dropdownItems">
+          <li><a href="nutrition.html">Healthy Nutrition</a></li>
+          <li><a href="tips.html">Fitness Tips</a></li>
+          <li><a href="workoutPlanner.html">Workout Planner</a></li>
+          <li><a href="gallery.html">Workout Gallery</a></li>
+        </ul>
+      </li>
+
+      <li><a href="mainActivity.html">Fitness Activity</a></li>
+    </ul>
+  </nav>
+</header>
 
 <section class="hero-section text-center">
   <h1 class="fw-bold display-5">About SPFIT</h1>
   <h3 class="fw-normal text-secondary">Built by a small team who wanted fitness to feel less intimidating</h3>
+</section>
+
+<section class="py-4 bg-white">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-6 col-md-3">
+        <div class="fw-bold fs-2" style="color:var(--accent-700);">4</div>
+        <div class="text-secondary small">Team Members</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold fs-2" style="color:var(--accent-700);">4</div>
+        <div class="text-secondary small">Workout Categories</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold fs-2" style="color:var(--accent-700);">12+</div>
+        <div class="text-secondary small">Pages Built</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="fw-bold fs-2" style="color:var(--accent-700);">100%</div>
+        <div class="text-secondary small">Beginner Friendly</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="py-5 text-center" style="background:var(--accent-50);">
@@ -97,7 +122,7 @@
           <div class="flip-inner">
             <div class="flip-front">
               <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+One" alt="Team member portrait">
-              <h4 class="h6 mb-0">Team Member 1</h4>
+              <h4 class="h6 mb-0">Zachery Swee</h4>
               <p class="small" style="color:var(--accent-700);">Frontend &amp; Design</p>
             </div>
             <div class="flip-back">
@@ -112,7 +137,7 @@
           <div class="flip-inner">
             <div class="flip-front">
               <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Two" alt="Team member portrait">
-              <h4 class="h6 mb-0">Team Member 2</h4>
+              <h4 class="h6 mb-0">Rex Foo</h4>
               <p class="small" style="color:var(--accent-700);">Content &amp; Research</p>
             </div>
             <div class="flip-back">
@@ -127,7 +152,7 @@
           <div class="flip-inner">
             <div class="flip-front">
               <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Three" alt="Team member portrait">
-              <h4 class="h6 mb-0">Team Member 3</h4>
+              <h4 class="h6 mb-0">Yu Xi</h4>
               <p class="small" style="color:var(--accent-700);">Functionality &amp; Scripts</p>
             </div>
             <div class="flip-back">
@@ -142,7 +167,7 @@
           <div class="flip-inner">
             <div class="flip-front">
               <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Four" alt="Team member portrait">
-              <h4 class="h6 mb-0">Team Member 4</h4>
+              <h4 class="h6 mb-0">Hajrah</h4>
               <p class="small" style="color:var(--accent-700);">Testing &amp; QA</p>
             </div>
             <div class="flip-back">
@@ -153,6 +178,14 @@
       </div>
     </div>
     <p class="fst-italic text-secondary mt-4">Tap a card to flip it</p>
+  </div>
+</section>
+
+<section class="py-5 text-center bg-white">
+  <div class="container" style="max-width:600px;">
+    <h2 class="h3 mb-2">Want to be part of the story?</h2>
+    <p class="text-secondary mb-4">Have feedback, a workout idea, or just want to say hi? We'd love to hear from you.</p>
+    <a href="connect.html" class="btn btn-accent rounded-pill px-4">Get in Touch</a>
   </div>
 </section>
 

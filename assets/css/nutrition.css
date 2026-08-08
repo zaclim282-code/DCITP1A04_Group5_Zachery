@@ -1,0 +1,76 @@
+body{
+    font-family:'Segoe UI',sans-serif;
+}
+
+.main-nav {
+    position: relative;
+    z-index: 1000;
+}
+
+/* dropdown */
+.dropdownItems{
+    display:none;
+    top:100%;
+    left:0;
+    min-width:180px;
+}
+
+.dropdownItems.active{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.dropdown-link{
+    display:block;
+    padding:10px;
+    color:#2d2d3a;
+    text-decoration:none;
+}
+
+.dropdown-link:hover{
+    color:#0d6efd;
+}
+
+
+/* flip card */
+.flip-card{
+    perspective:1000px;
+    height:260px;
+    width:100%;
+    border:none;
+    background:none;
+    cursor: pointer;
+}
+
+
+.flip-inner{
+    position:relative;
+    height:100%;
+    width:100%;
+    transition:0.7s;
+    transform-style:preserve-3d;
+}
+
+
+.flip-card.flipped .flip-inner{
+    transform:rotateY(180deg);
+}
+
+
+.flip-front,
+.flip-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+}
+
+
+.flip-back{
+    transform:rotateY(180deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
