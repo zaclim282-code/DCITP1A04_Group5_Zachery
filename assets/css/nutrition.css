@@ -1,6 +1,28 @@
 body{
     font-family:'Segoe UI',sans-serif;
 }
+.logo-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 0.7rem;
+    background: #2d2d3a;
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.login-btn {
+    border: 2px solid #2d2d3a;
+    color: #2d2d3a;
+    transition: all 0.25s ease;
+}
+
+.login-btn:hover {
+    background: #2d2d3a;
+    color: #ffffff;
+}
 
 .main-nav {
     position: relative;
@@ -8,30 +30,26 @@ body{
 }
 
 /* dropdown */
-.dropdownItems{
-    display:none;
-    top:100%;
-    left:0;
-    min-width:180px;
+.dropdownItems {
+    display: none;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 190px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-.dropdownItems.active{
-    display:flex;
-    flex-direction:column;
+/* Hover reveal for desktop */
+.dropdown:hover .dropdownItems,
+.dropdownItems.active {
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-
-.dropdown-link{
-    display:block;
-    padding:10px;
-    color:#2d2d3a;
-    text-decoration:none;
+.dropdownItems a:hover {
+    background-color: #0d6efd;
+    color: #ffffff !important;
 }
-
-.dropdown-link:hover{
-    color:#0d6efd;
-}
-
 
 /* flip card */
 .flip-card{

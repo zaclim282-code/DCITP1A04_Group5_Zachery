@@ -10,67 +10,47 @@
 <link rel="stylesheet" href="../assets/css/gallery.css">
 </head>
 <body>
-
-<!-- Bootstrap Navbar (Updated to Orange) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-orange border-bottom py-3 shadow-sm">
-    <div class="container-fluid px-4 px-lg-5">
-        
-        <!-- Logo Section -->
-        <a class="navbar-brand d-flex align-items-center gap-3" href="../index.html">
-            <button class="btn btn-outline-light fw-bold px-2 py-0 lh-sm" disabled>SP<br>FIT</button>
-            <span class="fs-3 fw-bold mb-0 text-white">SPFIT</span>
-        </a>
-
-        <!-- Mobile Toggle Button -->
-        <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-            <ul class="navbar-nav gap-3 fw-semibold">
-                <li class="nav-item"><a class="nav-link text-white" href="../index.html">Home</a></li>
-                
-                <!-- About Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">About</a>
-                    <ul class="dropdown-menu shadow-sm">
-                        <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
-                        <li><a class="dropdown-item" href="joinus.html">Contact Us</a></li>
-                    </ul>
-                </li>
-
-                <!-- Workouts Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Workouts</a>
-                    <ul class="dropdown-menu shadow-sm">
-                        <li><a class="dropdown-item" href="begworkout.html">Beginner Workout</a></li>
-                        <li><a class="dropdown-item" href="strength.html">Strength Training</a></li>
-                        <li><a class="dropdown-item" href="cardio.html">Cardio Exercise</a></li>
-                        <li><a class="dropdown-item" href="stretchingandflexibility.html">Flexibility &amp; Stretching</a></li>
-                    </ul>
-                </li>
-
-                <!-- Resources Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
-                    <ul class="dropdown-menu shadow-sm">
-                        <li><a class="dropdown-item" href="nutrition.html">Healthy Nutrition</a></li>
-                        <li><a class="dropdown-item" href="tips.html">Fitness Tips</a></li>
-                        <li><a class="dropdown-item" href="workoutTable.html">Workout Planner</a></li>
-                        <li><a class="dropdown-item" href="gallery.html">Workout Gallery</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item"><a class="nav-link text-white" href="mainActivity.html">Fitness Activity</a></li>
-            </ul>
+<body class="min-vh-100" style="background-color: #fff4e6;"> 
+ <header class="site-header bg-white shadow-sm sticky-top">
+        <div class="top-bar d-flex align-items-center justify-content-between pad-x py-3 px-4 mx-auto" style="max-width: 1200px;">
+            <div class="d-flex align-items-center gap-2">
+                <button class="logo-btn text-white border-0 rounded-circle fw-bold" style="background-color: orange;">SP</button>
+                <span class="brand-title fw-bold">SPFIT</span>
+            </div>
+            <a href="../html/connect.html" class="login-btn rounded-pill px-4 py-2 fw-semibold text-decoration-none text-black" style="background-color: orange;">Login / Join</a>
         </div>
-
-        <!-- Login Button -->
-<a href="connect.html" class="btn btn-light text-orange fw-bold d-none d-lg-block">
-    Login / Join
-</a>
-</nav>
+        
+        <nav class="main-nav w-100" style="background-color: orange;">
+            <ul class="list-unstyled d-flex justify-content-center align-items-center gap-4 m-0 px-3">
+                <li><a href="../index.html" class="text-white text-decoration-none fw-semibold py-3 d-inline-block">Home</a></li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">About</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="aboutus.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">About Us</a></li>
+                        <li><a href="joinus.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">Workouts</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="beginner.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Beginner Workout</a></li>
+                        <li><a href="strength.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Strength Training</a></li>
+                        <li><a href="cardio.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Cardio Exercise</a></li>
+                        <li><a href="stretchingandflexibility.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Flexibility &amp; Stretching</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">Resources</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="nutrition.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Healthy Nutrition</a></li>
+                        <li><a href="tips.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Fitness Tips</a></li>
+                        <li><a href="workoutTable.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Workout Planner</a></li>
+                        <li><a href="gallery.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Workout Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="mainActivity.html" class="text-white text-decoration-none fw-semibold py-3 d-inline-block">Fitness Activity</a></li>
+            </ul>
+        </nav>
 
 <!-- Heading -->
 <section class="container text-center my-5">

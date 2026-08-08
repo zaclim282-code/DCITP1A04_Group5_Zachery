@@ -10,81 +10,48 @@
     <link rel="stylesheet" href="../assets/css/nutrition.css">
 </head>
 <body class="bg-primary-subtle min-vh-100">
-
-    <!-- Navigation -->
-    <nav class="main-nav bg-primary">
-        <ul class="list-unstyled d-flex justify-content-center align-items-center gap-4 mb-0">
-            <li>
-                <a href="../index.html" class="text-white text-decoration-none fw-semibold p-3 d-block">
-                    Home
-                </a>
-            </li>
-
-            <li class="dropdown position-relative">
-                <p class="dropdownText text-white fw-semibold p-3 mb-0">
-                    About
-                </p>
-                <ul class="dropdownItems position-absolute bg-white rounded shadow list-unstyled p-2">
-                    <li>
-                        <a href="aboutus.html" class="dropdown-link">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="joinus.html" class="dropdown-link">
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="dropdown position-relative">
-                <p class="dropdownText text-white fw-semibold p-3 mb-0">
-                    Workouts
-                </p>
-                <ul class="dropdownItems position-absolute bg-white rounded shadow list-unstyled p-2">
-                    <li><a href="begworkout.html" class="dropdown-link">Beginner Workout</a></li>
-                    <li><a href="strength.html" class="dropdown-link">Strength Training</a></li>
-                    <li><a href="cardio.html" class="dropdown-link">Cardio Exercise</a></li>
-                    <li><a href="stretchingandflexibility.html" class="dropdown-link">Flexibility & Stretching</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown position-relative">
-                <p class="dropdownText text-white fw-semibold p-3 mb-0">
-                    Resources
-                </p>
-                <ul class="dropdownItems position-absolute bg-white rounded shadow list-unstyled p-2">
-                    <li>
-                        <a href="nutrition.html" class="dropdown-link">
-                            Healthy Nutrition
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tips.html" class="dropdown-link">
-                            Fitness Tips
-                        </a>
-                    </li>
-                    <li>
-                        <a href="workoutTable.html" class="dropdown-link">
-                            Workout Planner
-                        </a>
-                    </li>
-                    <li>
-                        <a href="gallery.html" class="dropdown-link">
-                            Workout Gallery
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="mainActivity.html" class="text-white text-decoration-none fw-semibold p-3 d-block">
-                    Fitness Activity
-                </a>
-            </li>
-        </ul>
-    </nav>
+ <header class="site-header bg-white shadow-sm sticky-top">
+        <div class="top-bar d-flex align-items-center justify-content-between pad-x py-3 px-4 mx-auto" style="max-width: 1200px;">
+            <div class="d-flex align-items-center gap-2">
+                <button class="logo-btn text-white border-0 rounded-circle fw-bold">SP</button>
+                <span class="brand-title fw-bold">SPFIT</span>
+            </div>
+            <a href="../html/connect.html" class="login-btn rounded-pill px-4 py-2 fw-semibold text-decoration-none">Login / Join</a>
+        </div>
+        
+        
+        <nav class="main-nav bg-primary w-100">
+            <ul class="list-unstyled d-flex justify-content-center align-items-center gap-4 m-0 px-3">
+                <li><a href="../index.html" class="text-white text-decoration-none fw-semibold py-3 d-inline-block">Home</a></li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">About</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="aboutus.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">About Us</a></li>
+                        <li><a href="connect.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">Workouts</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="beginner.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Beginner Workout</a></li>
+                        <li><a href="strength.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Strength Training</a></li>
+                        <li><a href="cardio.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Cardio Exercise</a></li>
+                        <li><a href="stretchingandflexibility.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Flexibility &amp; Stretching</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown position-relative">
+                    <p class="dropdownText text-white fw-semibold py-3 m-0 cursor-pointer">Resources</p>
+                    <ul class="dropdownItems list-unstyled position-absolute bg-white rounded-3 py-2 m-0 z-3">
+                        <li><a href="nutrition.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Healthy Nutrition</a></li>
+                        <li><a href="tips.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Fitness Tips</a></li>
+                        <li><a href="workoutPlanner.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Workout Planner</a></li>
+                        <li><a href="gallery.html" class="d-block px-3 py-2 text-dark text-decoration-none fw-semibold small">Workout Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="mainActivity.html" class="text-white text-decoration-none fw-semibold py-3 d-inline-block">Fitness Activity</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Page Title -->
     <div class="text-center py-4">

@@ -8,7 +8,7 @@
     --dark: #2d2d3a;
     --soft-gray: #f7f5fa;
     --white: #ffffff;
-
+    --orange: #fd7e14;
     /* About Us green scale */
     --green-50: #f0fdf4;
     --green-100: #dcfce7;
@@ -58,6 +58,7 @@ a {
     align-items: center;
     margin: 0;
     line-height: 1.2;
+    text-decoration: none; 
 }
 
 
