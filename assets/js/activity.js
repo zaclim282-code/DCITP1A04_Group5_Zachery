@@ -175,12 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
         });
     }
-
-    // 6. Flip card interaction for About Us page
-    document.querySelectorAll('.flip-card').forEach((card) => {
-        card.addEventListener('click', () => {
-            const flipped = card.classList.toggle('flipped');
-            card.setAttribute('aria-pressed', String(flipped));
-        });
-    });
 });

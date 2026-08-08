@@ -1,5 +1,4 @@
-
-  // assets/js/beginnerworkout.js
+// assets/js/beginnerworkout.js
 document.addEventListener('DOMContentLoaded', function () {
   const viewAllBtn = document.getElementById('viewAllBtn');
   const extraWorkouts = document.getElementById('extraWorkouts');

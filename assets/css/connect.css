@@ -1,13 +1,13 @@
 :root {
     --pink: #4aa16d;
     --blue: #d4e8f7;
-    --sp-bg-soft:#98beab;
+    --sp-bg-soft: #98beab;
     --lavender: #e8dff5;
     --peach: #fde8d8;
     --mint: #d6f5ed;
     --dark: #2d2d3a;
     --soft-gray: #f7f5fa;
-    --white: #ffffff;
+    --white: #fff;
 
     /* About Us green scale */
     --green-50: #f0fdf4;
@@ -28,9 +28,7 @@
     font-family: 'Segoe UI', 'DM Sans', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background: var(--soft-gray);
@@ -50,17 +48,6 @@ a {
     top: 0;
     z-index: 100;
 }
-
-/*!MPORTANT */
-.main-nav a,
-.dropdownText {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    line-height: 1.2;
-}
-
-
 
 .top-bar {
     display: flex;
@@ -105,90 +92,79 @@ a {
     color: var(--white);
 }
 
+/* ---------- Main navigation ---------- */
 .main-nav {
-    background: var(--pink);
-}
-
-/* Dropdown arrow styling & rotation */
-/* --- MAIN NAVIGATION BAR --- */
-.main-nav {
-  background-color: var(--pink, #91cf64);
-  width: 100%;
+    background-color: var(--pink, #91cf64);
+    width: 100%;
 }
 
 .main-nav > ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 0 auto;
-  padding: 0 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-/* Parent menu item containing a dropdown */
 .main-nav > ul > li {
-  position: relative; /* REQUIRED for dropdown positioning */
+    position: relative; /* required for dropdown positioning */
 }
 
 .main-nav a,
 .main-nav .dropdownText {
-  display: inline-block;
-  padding: 12px 14px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: var(--dark, #2d2d3a);
+    display: inline-block;
+    align-items: center;
+    margin: 0;
+    line-height: 1.2;
+    padding: 12px 14px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--dark, #2d2d3a);
 }
 
-/* --- DROPDOWN BOX --- */
+/* --- Dropdown box --- */
 .dropdownItems {
-  display: none;                  /* Hidden by default */
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);   /* Centers dropdown directly below its menu title */
-  background-color: #ffffff;
-  min-width: 190px;
-  border-radius: 12px;
-  padding: 8px 0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  z-index: 1000;
-  margin-top: 4px;
-  list-style: none;
+    display: none; /* hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* center below its trigger */
+    background-color: #fff;
+    min-width: 190px;
+    border-radius: 12px;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    margin-top: 4px;
+    list-style: none;
 }
 
-/* Class toggled by JavaScript */
 .dropdownItems.active {
-  display: flex !important;      
-  flex-direction: column !important; /* FORCES LINKS TO STACK VERTICALLY */
+    display: flex !important;
+    flex-direction: column !important; /* stack links vertically */
 }
 
-/* Individual dropdown links */
-.dropdownItems li {
-  width: 100%;
-  display: block;
-}
+.dropdownItems li { width: 100%; display: block; }
 
 .dropdownItems li a {
-  display: block;
-  padding: 10px 16px;
-  color: #166534;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;           /* Prevents text wrapping */
+    display: block;
+    padding: 10px 16px;
+    color: #166534;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .dropdownItems li a:hover {
-  background-color: #dcfce7;
-  color: #15803d;
+    background-color: #dcfce7;
+    color: #15803d;
 }
 
-#Workoutbtn {
-    background: var(--dark);
-    color: var(--white);
-}
+#Workoutbtn { background: var(--dark); color: var(--white); }
 
 #Searchbtn {
     background: transparent;
@@ -196,50 +172,47 @@ a {
     color: var(--dark);
 }
 
-.hero-buttons button:hover {
-    transform: scale(1.05);
-}
+.hero-buttons button:hover { transform: scale(1.05); }
 
-/* ---------- Contact Card (Get In Touch) ---------- */
+/* ---------- Contact card (Get In Touch) ---------- */
 .contact-card {
-  background-color: #4aa16d;
-  border-radius: 16px;
-  padding: 24px;
+    background-color: #4aa16d;
+    border-radius: 16px;
+    padding: 24px;
 }
 
 .contact-icon {
-  color: #e63946;
-  font-size: 1.1rem;
-  margin-top: 2px;
+    color: #e63946;
+    font-size: 1.1rem;
+    margin-top: 2px;
 }
 
 .social-icon {
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #3cd44d;
-  color: #090909;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: transform 0.25s ease, background-color 0.25s ease;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #3cd44d;
+    color: #090909;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
 .social-icon:hover {
-  background-color: #fefefe;
-  transform: translateY(-4px);
+    background-color: #fefefe;
+    transform: translateY(-4px);
 }
+
 /* ---------- Features ---------- */
-.features-section {
-    padding: 70px 20px;
-}
+.features-section { padding: 70px 20px; }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 75px ;
+    padding-top: 75px;
 }
 
 .features-grid {
@@ -257,7 +230,6 @@ a {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -269,20 +241,13 @@ a {
     border-radius: 14px;
     margin-bottom: 16px;
     background: linear-gradient(135deg, var(--blue), var(--mint));
-}
-.card-image-placeholder {
-    width: 100%;
-    height: 160px;
-    border-radius: 14px;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--blue), var(--mint));
-    overflow: hidden;           /* NEW: keeps the image inside the rounded corners */
+    overflow: hidden; /* keeps the image inside the rounded corners */
 }
 
 .card-image-placeholder img {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* NEW: fills the box without distorting the image */
+    object-fit: cover; /* fills the box without distorting the image */
     display: block;
 }
 
@@ -294,10 +259,7 @@ a {
     background: linear-gradient(135deg, var(--green), var(--mint));
 }
 
-.feature-card h3 {
-    margin-bottom: 14px;
-    font-size: 1.2rem;
-}
+.feature-card h3 { margin-bottom: 14px; font-size: 1.2rem; }
 
 .card-link {
     display: inline-block;
@@ -320,10 +282,7 @@ a {
     text-align: center;
 }
 
-.decision-section h2 {
-    margin-bottom: 40px;
-    font-size: 1.9rem;
-}
+.decision-section h2 { margin-bottom: 40px; font-size: 1.9rem; }
 
 .choose-grid {
     display: grid;
@@ -342,14 +301,9 @@ a {
     background: var(--white);
 }
 
-.icon-box {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-}
+.icon-box { font-size: 2.4rem; margin-bottom: 10px; }
 
-.choose-item h4 {
-    font-weight: 700;
-}
+.choose-item h4 { font-weight: 700; }
 
 /* ---------- Footer / Motivation ---------- */
 footer {
@@ -358,16 +312,9 @@ footer {
     padding: 50px 20px;
 }
 
-.motivation-card {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
+.motivation-card { max-width: 700px; margin: 0 auto; text-align: center; }
 
-.motivation-card h3 {
-    margin-bottom: 24px;
-    font-size: 1.4rem;
-}
+.motivation-card h3 { margin-bottom: 24px; font-size: 1.4rem; }
 
 .quote-carousel {
     display: flex;
@@ -389,13 +336,9 @@ footer {
     transition: background 0.25s ease;
 }
 
-.arrow-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
+.arrow-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-.quote-content {
-    min-height: 80px;
-}
+.quote-content { min-height: 80px; }
 
 .quote-content blockquote {
     font-style: italic;
@@ -403,20 +346,13 @@ footer {
     margin-bottom: 10px;
 }
 
-.quote-content p {
-    font-weight: 600;
-    color: var(--pink);
-}
+.quote-content p { font-weight: 600; color: var(--pink); }
 
 /* ---------- About Us page (green theme) ---------- */
-.page-about .main-nav {
-    background: var(--green-100);
-}
+.page-about .main-nav { background: var(--green-100); }
 
 .page-about .main-nav a:hover,
-.page-about .main-nav a.active {
-    border-bottom-color: var(--green-600);
-}
+.page-about .main-nav a.active { border-bottom-color: var(--green-600); }
 
 .page-about .dropdownItems a:hover,
 .page-about .dropdownItems a.active {
@@ -424,9 +360,7 @@ footer {
     color: var(--green-800);
 }
 
-.page-about .logo-btn {
-    background: var(--green-700);
-}
+.page-about .logo-btn { background: var(--green-700); }
 
 .page-about .login-btn {
     border-color: var(--green-700);
@@ -449,9 +383,7 @@ footer {
     background: var(--green-50);
 }
 
-.purpose-section .container {
-    max-width: 700px;
-}
+.purpose-section .container { max-width: 700px; }
 
 .purpose-section h2 {
     font-size: 1.9rem;
@@ -459,16 +391,10 @@ footer {
     color: var(--green-800);
 }
 
-.purpose-section p {
-    font-size: 1.1rem;
-    color: #4a4a5a;
-}
+.purpose-section p { font-size: 1.1rem; color: #4a4a5a; }
 
 /* Mission & Vision */
-.mission-section {
-    padding: 70px 20px;
-    background: var(--white);
-}
+.mission-section { padding: 70px 20px; background: var(--white); }
 
 .mission-grid {
     display: grid;
@@ -491,10 +417,7 @@ footer {
     box-shadow: 0 12px 30px rgba(34, 197, 94, 0.15);
 }
 
-.mission-card .icon-box {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-}
+.mission-card .icon-box { font-size: 2.2rem; margin-bottom: 8px; }
 
 .mission-card h3 {
     color: var(--green-700);
@@ -509,16 +432,9 @@ footer {
     text-align: center;
 }
 
-.team-section h2 {
-    color: var(--green-800);
-    margin-bottom: 8px;
-    font-size: 1.9rem;
-}
+.team-section h2 { color: var(--green-800); margin-bottom: 8px; font-size: 1.9rem; }
 
-.team-subtitle {
-    color: #4a4a5a;
-    margin-bottom: 44px;
-}
+.team-subtitle { color: #4a4a5a; margin-bottom: 44px; }
 
 .team-grid {
     display: grid;
@@ -546,9 +462,7 @@ footer {
     transform-style: preserve-3d;
 }
 
-.flip-card.flipped .flip-inner {
-    transform: rotateY(180deg);
-}
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
 
 .flip-front,
 .flip-back {
@@ -577,15 +491,9 @@ footer {
     margin-bottom: 12px;
 }
 
-.flip-front h4 {
-    font-size: 1rem;
-    margin-bottom: 4px;
-}
+.flip-front h4 { font-size: 1rem; margin-bottom: 4px; }
 
-.flip-front p {
-    font-size: 0.85rem;
-    color: var(--green-700);
-}
+.flip-front p { font-size: 0.85rem; color: var(--green-700); }
 
 .flip-back {
     background: var(--green-600);
@@ -599,50 +507,31 @@ footer {
     font-size: 0.9rem;
 }
 
-.team-hint {
-    margin-top: 32px;
-    font-style: italic;
-    color: #6b6b7a;
-}
+.team-hint { margin-top: 32px; font-style: italic; color: #6b6b7a; }
 
 /* ---------- Responsive ---------- */
 
-/* Tablet: collapse the 3-column desktop grids to 2 columns.
-   Range is capped at 769px so it hands off cleanly to the
-   phone breakpoint below (max-width: 768px) without overlap. */
+/* Tablet: collapse 3-column grids to 2. Capped at 769px so it hands
+   off cleanly to the phone breakpoint below without overlap. */
 @media (max-width: 1024px) and (min-width: 769px) {
     .features-grid,
-    .choose-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .choose-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .team-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
     .features-grid,
     .choose-grid,
-    .mission-grid {
-        grid-template-columns: 1fr;
-    }
+    .mission-grid { grid-template-columns: 1fr; }
 
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .top-bar {
-        padding: 14px 18px;
-    }
+    .top-bar { padding: 14px 18px; }
 
-    .hero-section h1 {
-        font-size: 2rem;
-    }
+    .hero-section h1 { font-size: 2rem; }
 
-    .main-nav ul {
-        justify-content: flex-start;
-    }
+    .main-nav ul { justify-content: flex-start; }
 
     .dropdownItems {
         position: static;
@@ -652,7 +541,5 @@ footer {
         display: none;
     }
 
-    .dropdownItems.active {
-        display: block;
-    }
+    .dropdownItems.active { display: block; }
 }

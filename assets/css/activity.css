@@ -152,3 +152,22 @@ body{
     background-color: orange;
     color: #ffffff !important;
 }
+/* Smooth transition for unlocking achievements & top counters */
+.achievement-row { 
+    transition: all 0.4s ease; 
+}
+
+#xpCount, #fpCount { 
+    transition: color 0.3s ease; 
+}
+
+/* Optional: Fallback for your custom dark button if bootstrap's btn-dark isn't enough */
+.btn-dark-custom {
+    background-color: #212529;
+    color: white;
+    border: none;
+}
+.btn-dark-custom:hover {
+    background-color: #424649;
+    color: white;
+}
