@@ -172,7 +172,8 @@ a {
     color: var(--dark);
 }
 
-.hero-buttons button:hover { transform: scale(1.05); }
+.hero-buttons button:hover { transform: scale(1.05);
+}
 
 /* ---------- Contact card (Get In Touch) ---------- */
 .contact-card {
