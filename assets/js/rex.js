@@ -150,7 +150,7 @@ function initStrengthQuiz() {
     var copy = FOCUS_COPY[winner];
 
     resultBox.innerHTML =
-      '<h5 class="mb-1" style="color:var(--accent-700);">' + copy.title + '</h5>' +
+      '<h5 class="mb-1 text-accent">' + copy.title + '</h5>' +
       '<p class="mb-0 text-secondary">' + copy.text + '</p>';
 
     var targetBtn = document.querySelector('.filter-btn[data-filter="' + winner + '"]');
@@ -314,32 +314,67 @@ function initExerciseDetails() {
 
       titleEl.textContent = d.name;
       bodyEl.innerHTML =
-        '<p class="fw-semibold mb-1" style="color:var(--accent-700);">Muscles Worked</p>' +
+        '<p class="fw-semibold mb-1 text-accent">Muscles Worked</p>' +
         '<p class="text-secondary">' + d.muscles + '</p>' +
-        '<p class="fw-semibold mb-1" style="color:var(--accent-700);">Benefits</p>' +
+        '<p class="fw-semibold mb-1 text-accent">Benefits</p>' +
         '<ul class="text-secondary">' + d.benefits.map(function (b) { return '<li>' + b + '</li>'; }).join('') + '</ul>' +
-        '<p class="fw-semibold mb-1" style="color:var(--accent-700);">Common Mistakes</p>' +
+        '<p class="fw-semibold mb-1 text-accent">Common Mistakes</p>' +
         '<ul class="text-secondary mb-3">' + d.mistakes.map(function (m) { return '<li>' + m + '</li>'; }).join('') + '</ul>' +
-        '<p class="fw-semibold mb-1" style="color:var(--accent-700);">Coach\u2019s Tip</p>' +
+        '<p class="fw-semibold mb-1 text-accent">Coach\u2019s Tip</p>' +
         '<p class="text-secondary mb-0">' + d.cue + '</p>';
     });
   });
 }
 
-/* ---------- Workout Planner page ---------- */
+/* ---------- Workout Planner page: schedule of day tabs + exercise cards ---------- */
 function initWorkoutPlanner() {
-  var body = document.getElementById('plannerBody');
-  if (!body) return;
+  var tabsEl = document.getElementById('dayTabs');
+  var panesEl = document.getElementById('dayPanes');
+  if (!tabsEl || !panesEl) return;
 
   var STORAGE_KEY = 'spfit_workout_plan';
   var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  var SHORT = { Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu', Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun' };
+  var CATEGORY = {
+    /* label = badge text, border/badge = Bootstrap contextual classes (no custom CSS needed),
+       icon = a tiny hand-drawn stick figure so each category also reads at a glance,
+       matching the icon style already used on the Strength page. */
+    upper: {
+      label: 'Upper Body', border: 'border-danger', badge: 'text-bg-danger', text: 'text-danger',
+      icon: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="8" r="4" fill="currentColor" stroke="none"/><path d="M20 12 L20 24"/><path d="M20 15 L12 10"/><path d="M20 15 L28 10"/><path d="M20 24 L14 34"/><path d="M20 24 L26 34"/></svg>'
+    },
+    lower: {
+      label: 'Lower Body', border: 'border-success', badge: 'text-bg-success', text: 'text-success',
+      icon: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="7" r="4" fill="currentColor" stroke="none"/><path d="M20 11 L20 20"/><path d="M20 13 L13 17"/><path d="M20 13 L27 17"/><path d="M20 20 L12 24 L11 34"/><path d="M20 20 L28 24 L29 34"/></svg>'
+    },
+    core: {
+      label: 'Core', border: 'border-info', badge: 'text-bg-info', text: 'text-info',
+      icon: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="14" r="4" fill="currentColor" stroke="none"/><path d="M10 16 L32 22"/><path d="M14 17 L12 27"/><path d="M32 22 L30 28"/></svg>'
+    }
+  };
+  var todayName = DAYS[(new Date().getDay() + 6) % 7]; // getDay(): Sun=0 -> shift so Monday=0
+
+  /* Same 9 exercises as the Strength Training page, so the planner's quick-add
+     list and the default plan always match what's actually taught there. */
+  var PRESET_EXERCISES = [
+    { id: 'benchpress', name: 'Barbell Bench Press', category: 'upper', sets: 4, reps: '6-10' },
+    { id: 'latpulldown', name: 'Lat Pulldown', category: 'upper', sets: 3, reps: '10-12' },
+    { id: 'barbellshoulderpress', name: 'Barbell Overhead Press', category: 'upper', sets: 3, reps: '6-8' },
+    { id: 'backsquat', name: 'Barbell Back Squat', category: 'lower', sets: 4, reps: '6-10' },
+    { id: 'legpress', name: 'Leg Press', category: 'lower', sets: 3, reps: '10-15' },
+    { id: 'romaniandeadlift', name: 'Romanian Deadlift', category: 'lower', sets: 3, reps: '8-10' },
+    { id: 'cablewoodchop', name: 'Cable Woodchopper', category: 'core', sets: 3, reps: '12 per side' },
+    { id: 'hanginglegraise', name: 'Hanging Leg Raise', category: 'core', sets: 3, reps: '10-12' },
+    { id: 'declinesitup', name: 'Decline Weighted Sit-Up', category: 'core', sets: 3, reps: '12-15' }
+  ];
+
   var plan = loadPlan();
 
   function defaultPlan() {
     return [
-      { day: 'Monday', exercise: 'Push-Ups', sets: 3, reps: '10-15' },
-      { day: 'Wednesday', exercise: 'Bodyweight Squats', sets: 3, reps: '12-15' },
-      { day: 'Friday', exercise: 'Plank', sets: 3, reps: '30-45 sec' }
+      { day: 'Monday', exercise: 'Barbell Bench Press', category: 'upper', sets: 4, reps: '6-10' },
+      { day: 'Wednesday', exercise: 'Barbell Back Squat', category: 'lower', sets: 4, reps: '6-10' },
+      { day: 'Friday', exercise: 'Hanging Leg Raise', category: 'core', sets: 3, reps: '10-12' }
     ];
   }
 
@@ -354,7 +389,6 @@ function initWorkoutPlanner() {
 
   function savePlan() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(plan)); } catch (e) { /* storage unavailable */ }
-    renderStats();
   }
 
   function escapeHtml(str) {
@@ -363,78 +397,155 @@ function initWorkoutPlanner() {
     });
   }
 
+  /* Build the tab buttons + empty panes once */
+  tabsEl.innerHTML = DAYS.map(function (day) {
+    var isToday = day === todayName;
+    return '<button type="button" class="btn filter-btn' + (isToday ? ' active' : '') +
+      '" data-bs-toggle="pill" data-bs-target="#day-' + day + '" role="tab">' +
+      SHORT[day] + (isToday ? ' <span class="small">(Today)</span>' : '') + '</button>';
+  }).join('');
+
+  panesEl.innerHTML = DAYS.map(function (day) {
+    return '<div class="tab-pane fade' + (day === todayName ? ' show active' : '') + '" id="day-' + day + '" role="tabpanel">' +
+      '<h5 class="d-none d-print-block mb-3">' + day + '</h5>' +
+      '<div class="row g-3" data-day-list="' + day + '"></div>' +
+      '</div>';
+  }).join('');
+
   function renderStats() {
     var statsEl = document.getElementById('planStats');
     if (!statsEl) return;
-    var totalExercises = plan.length;
     var daysUsed = new Set(plan.map(function (p) { return p.day; })).size;
-    var totalSets = plan.reduce(function (sum, p) { return sum + (parseInt(p.sets, 10) || 0); }, 0);
     statsEl.innerHTML =
-      '<div><div class="stat-num">' + totalExercises + '</div><div class="text-secondary small">Exercises</div></div>' +
-      '<div><div class="stat-num">' + daysUsed + '</div><div class="text-secondary small">Days Planned</div></div>' +
-      '<div><div class="stat-num">' + totalSets + '</div><div class="text-secondary small">Total Sets</div></div>';
+      '<div><div class="stat-num">' + plan.length + '</div><div class="text-secondary small">Exercises</div></div>' +
+      '<div><div class="stat-num">' + daysUsed + '</div><div class="text-secondary small">Days Planned</div></div>';
+
+    var bar = document.getElementById('weekProgressBar');
+    var label = document.getElementById('weekProgressLabel');
+    if (bar && label) {
+      var pct = Math.round((daysUsed / DAYS.length) * 100);
+      bar.style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', pct);
+      label.textContent = daysUsed + ' of ' + DAYS.length + ' days';
+    }
   }
 
-  function renderRows() {
-    if (!plan.length) {
-      body.innerHTML = '<tr><td colspan="5" class="text-center text-secondary py-4">No exercises yet — click "+ Add Exercise" to build your week.</td></tr>';
-      return;
-    }
-    body.innerHTML = plan.map(function (row, idx) {
-      var options = DAYS.map(function (d) {
-        return '<option value="' + d + '"' + (d === row.day ? ' selected' : '') + '>' + d + '</option>';
+  function renderCards() {
+    DAYS.forEach(function (day) {
+      var list = panesEl.querySelector('[data-day-list="' + day + '"]');
+      var rows = plan.filter(function (p) { return p.day === day; });
+
+      if (!rows.length) {
+        list.innerHTML = '<p class="text-secondary text-center py-4 mb-0">No exercises planned for ' + day + ' yet.</p>';
+        return;
+      }
+
+      list.innerHTML = rows.map(function (row) {
+        var idx = plan.indexOf(row);
+        var cat = CATEGORY[row.category] || CATEGORY.upper;
+        return (
+          '<div class="col-md-4">' +
+            '<div class="card h-100 border-top border-3 ' + cat.border + ' position-relative">' +
+              '<button type="button" class="btn-close position-absolute top-0 end-0 m-2 planner-remove" data-idx="' + idx + '" aria-label="Remove"></button>' +
+              '<div class="card-body">' +
+                /* icon + badge share a row so the stick figure sits right next to its label */
+                '<div class="d-flex align-items-center gap-2 mb-2">' +
+                  '<span class="exercise-icon ' + cat.text + '">' + cat.icon + '</span>' +
+                  '<span class="badge ' + cat.badge + '">' + cat.label + '</span>' +
+                '</div>' +
+                '<h6 class="fw-bold">' + escapeHtml(row.exercise) + '</h6>' +
+                '<p class="text-secondary small mb-0">' + escapeHtml(row.sets) + ' sets &middot; ' + escapeHtml(row.reps) + '</p>' +
+              '</div>' +
+            '</div>' +
+          '</div>'
+        );
       }).join('');
-      return (
-        '<tr>' +
-          '<td><select class="form-select form-select-sm" data-field="day" data-idx="' + idx + '">' + options + '</select></td>' +
-          '<td><input type="text" class="form-control form-control-sm" data-field="exercise" data-idx="' + idx + '" value="' + escapeHtml(row.exercise) + '" placeholder="e.g. Push-Ups"></td>' +
-          '<td><input type="number" min="1" class="form-control form-control-sm" style="width:70px;" data-field="sets" data-idx="' + idx + '" value="' + escapeHtml(row.sets) + '"></td>' +
-          '<td><input type="text" class="form-control form-control-sm" style="width:100px;" data-field="reps" data-idx="' + idx + '" value="' + escapeHtml(row.reps) + '" placeholder="e.g. 10-12"></td>' +
-          '<td class="text-center"><button type="button" class="planner-remove fs-5" data-idx="' + idx + '" aria-label="Remove row">&times;</button></td>' +
-        '</tr>'
-      );
-    }).join('');
-  }
-
-  body.addEventListener('input', function (e) {
-    var idx = e.target.dataset.idx;
-    var field = e.target.dataset.field;
-    if (idx === undefined || !field) return;
-    plan[idx][field] = e.target.value;
-    savePlan();
-  });
-
-  body.addEventListener('change', function (e) {
-    if (e.target.dataset.field === 'day') {
-      plan[e.target.dataset.idx].day = e.target.value;
-      savePlan();
-    }
-  });
-
-  body.addEventListener('click', function (e) {
-    if (e.target.classList.contains('planner-remove')) {
-      plan.splice(e.target.dataset.idx, 1);
-      renderRows();
-      savePlan();
-    }
-  });
-
-  var addBtn = document.getElementById('addRowBtn');
-  if (addBtn) {
-    addBtn.addEventListener('click', function () {
-      plan.push({ day: 'Monday', exercise: '', sets: 3, reps: '' });
-      renderRows();
-      savePlan();
     });
   }
 
-  var clearBtn = document.getElementById('clearPlanBtn');
+  function render() {
+    renderCards();
+    renderStats();
+  }
+
+  /* One delegated click handler covers every card's × button, even ones
+     that get re-rendered later — no need to re-bind listeners each time. */
+  panesEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.planner-remove');
+    if (!btn) return;
+    plan.splice(btn.dataset.idx, 1);
+    savePlan();
+    render();
+  });
+
+  /* Add exercise modal: fill the Day dropdown + preset picker, then listen for submit */
+  var dayField = document.getElementById('fieldDay');
+  if (dayField) {
+    dayField.innerHTML = DAYS.map(function (d) { return '<option value="' + d + '">' + d + '</option>'; }).join('');
+  }
+
+  var presetField = document.getElementById('fieldPreset');
+  var exerciseField = document.getElementById('fieldExercise');
+  var customWrap = document.getElementById('customExerciseWrap');
+  var categoryField = document.getElementById('fieldCategory');
+  var setsField = document.getElementById('fieldSets');
+  var repsField = document.getElementById('fieldReps');
+
+  if (presetField) {
+    var groupLabels = { upper: 'Upper Body', lower: 'Lower Body', core: 'Core' };
+    presetField.innerHTML = Object.keys(groupLabels).map(function (cat) {
+      var options = PRESET_EXERCISES.filter(function (p) { return p.category === cat; })
+        .map(function (p) { return '<option value="' + p.id + '">' + p.name + '</option>'; }).join('');
+      return '<optgroup label="' + groupLabels[cat] + '">' + options + '</optgroup>';
+    }).join('') + '<option value="custom">+ Custom Exercise&hellip;</option>';
+
+    presetField.addEventListener('change', function () {
+      var chosen = PRESET_EXERCISES.filter(function (p) { return p.id === presetField.value; })[0];
+      if (chosen) {
+        customWrap.classList.add('d-none');
+        exerciseField.required = false;
+        exerciseField.value = chosen.name;
+        categoryField.value = chosen.category;
+        setsField.value = chosen.sets;
+        repsField.value = chosen.reps;
+      } else {
+        customWrap.classList.remove('d-none');
+        exerciseField.required = true;
+        exerciseField.value = '';
+        exerciseField.focus();
+      }
+    });
+    presetField.dispatchEvent(new Event('change')); // pre-fill using the first preset
+  }
+
+  var addForm = document.getElementById('addExerciseForm');
+  if (addForm) {
+    addForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // stop the form from actually navigating anywhere
+      plan.push({
+        day: document.getElementById('fieldDay').value,
+        exercise: document.getElementById('fieldExercise').value.trim(),
+        category: document.getElementById('fieldCategory').value,
+        sets: document.getElementById('fieldSets').value,
+        reps: document.getElementById('fieldReps').value.trim()
+      });
+      savePlan();
+      render();
+      addForm.reset();
+      if (presetField) presetField.dispatchEvent(new Event('change'));
+      // close the modal the same way a Bootstrap data-bs-dismiss button would
+      var modalEl = document.getElementById('addExerciseModal');
+      var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.hide();
+    });
+  }
+
   var confirmClearBtn = document.getElementById('confirmClearBtn');
-  if (clearBtn && confirmClearBtn) {
+  if (confirmClearBtn) {
     confirmClearBtn.addEventListener('click', function () {
       plan = [];
-      renderRows();
       savePlan();
+      render();
     });
   }
 
@@ -443,6 +554,5 @@ function initWorkoutPlanner() {
     printBtn.addEventListener('click', function () { window.print(); });
   }
 
-  renderRows();
-  renderStats();
+  render();
 }

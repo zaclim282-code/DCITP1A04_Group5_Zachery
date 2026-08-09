@@ -184,6 +184,18 @@ body {
   padding: 70px 20px;
 }
 
+/* Bold dark banner hero (About Us) */
+.hero-dark {
+  background: linear-gradient(135deg, var(--accent-800) 0%, #1b1b24 100%);
+  min-height: 340px;
+}
+
+/* Small stick-figure illustration next to the About Us hero text */
+.hero-figure { width: 64px; height: 64px; }
+
+/* About Us tabs: tint Bootstrap's nav-underline to match the section accent */
+.nav-underline .nav-link.active { color: var(--accent-700); border-bottom-color: var(--accent-700); }
+
 /* ---------- Cards / tags shared across pages ---------- */
 .card-image-placeholder {
   height: 160px;
@@ -199,6 +211,16 @@ body {
 
 /* ---------- More Details button ---------- */
 .detail-btn { border-width: 2px; font-weight: 600; }
+
+/* ---------- Small utilities (replace what used to be inline styles) ---------- */
+.text-accent { color: var(--accent-700); }
+.text-accent-dark { color: var(--accent-800); }
+.bg-accent { background: var(--accent-600) !important; }
+.bg-accent-50 { background: var(--accent-50); }
+.border-accent-200 { border-color: var(--accent-200) !important; }
+.modal-header-accent { background: var(--accent-50); border-bottom: 1px solid var(--accent-200); }
+.measure { max-width: 700px; margin-inline: auto; }
+.measure-lg { max-width: 900px; margin-inline: auto; }
 
 .icon-box { font-size: 2.2rem; line-height: 1; }
 
@@ -232,11 +254,9 @@ body {
 .quiz-option.selected { background: var(--accent-100); border-color: var(--accent-600) !important; }
 #quizResult { border-left: 4px solid var(--accent-600); background: var(--accent-50); }
 
-/* ---------- Workout planner ---------- */
-.planner-table select:focus,
-.planner-table input:focus { border-color: var(--accent-500); box-shadow: 0 0 0 .2rem var(--accent-100); }
-.planner-remove { color: #b91c1c; background: none; border: none; }
+/* ---------- Workout planner (day tabs + cards, mostly plain Bootstrap) ---------- */
 #planStats .stat-num { color: var(--accent-700); font-weight: 800; font-size: 1.5rem; }
+.exercise-icon { width: 28px; height: 28px; flex-shrink: 0; }
 
 /* ---------- Footer quote (Bootstrap carousel) ---------- */
 .quote-carousel blockquote { font-style: italic; font-size: 1.1rem; }
@@ -246,14 +266,26 @@ body {
 .quote-carousel .carousel-control-prev:hover,
 .quote-carousel .carousel-control-next:hover { background: rgba(255,255,255,.25); }
 
-/* ---------- Print (Workout Planner) ---------- */
+/* ---------- Print (Workout Planner) ----------
+   Printing needs a few extra fixes on top of .no-print:
+   Bootstrap's colored badges rely on a background fill, and most
+   browsers skip background colors when printing — so a badge like
+   "Upper Body" (white text on red) turns invisible on paper unless
+   we swap it to colored text + a border instead. */
 @media print {
   .no-print { display: none !important; }
   body { background: #fff; color: #000; }
   .hero-section { background: none !important; padding: 10px 0 20px; }
-  .planner-table th { color: #000 !important; }
-  .table-responsive { box-shadow: none !important; border: 1px solid #ccc; }
-  select, input { border: none !important; box-shadow: none !important; -webkit-appearance: none; appearance: none; background: transparent !important; }
+
+  /* show every day's schedule stacked, instead of just the active tab */
+  .tab-pane { display: block !important; opacity: 1 !important; }
+
+  .card { break-inside: avoid; border-color: #ccc !important; box-shadow: none !important; }
   .planner-remove { display: none !important; }
   #planStats .stat-num { color: #000 !important; }
+
+  /* readable category labels without relying on background color */
+  .badge.text-bg-danger  { background: none !important; color: #b91c1c !important; border: 1px solid #b91c1c; }
+  .badge.text-bg-success { background: none !important; color: #15803d !important; border: 1px solid #15803d; }
+  .badge.text-bg-info    { background: none !important; color: #055160 !important; border: 1px solid #055160; }
 }

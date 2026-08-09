@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SPFIT - About Us</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/rex.css">
 </head>
 <body class="section-general">
 
 <header class="site-header">
   <div class="top-bar">
-    <div style="display:flex; align-items:center; gap:12px;">
+    <div class="d-flex align-items-center gap-2">
       <button class="logo-btn" type="button">SP</button>
       <span class="brand-title">SPFIT</span>
     </div>
@@ -20,7 +20,7 @@
 
   <nav class="main-nav">
     <ul>
-      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
 
       <li class="dropdown">
         <p class="dropdownText">About</p>
@@ -55,134 +55,196 @@
   </nav>
 </header>
 
-<section class="hero-section text-center">
-  <h1 class="fw-bold display-5">About SPFIT</h1>
-  <h3 class="fw-normal text-secondary">Built by a small team who wanted fitness to feel less intimidating</h3>
-</section>
-
-<section class="py-4 bg-white">
-  <div class="container">
-    <div class="row g-4 text-center">
-      <div class="col-6 col-md-3">
-        <div class="fw-bold fs-2" style="color:var(--accent-700);">4</div>
-        <div class="text-secondary small">Team Members</div>
+<!-- NASA-style dark banner hero -->
+<section class="hero-dark text-white d-flex align-items-center">
+  <div class="container measure-lg py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <h1 class="fw-bold display-3 mb-3">About SPFIT</h1>
+        <p class="fs-5 mb-0 text-white-50">SPFIT explores what makes a workout stick, builds routines that fit real schedules, and helps everyone find fitness that feels like theirs.</p>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="fw-bold fs-2" style="color:var(--accent-700);">4</div>
-        <div class="text-secondary small">Workout Categories</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="fw-bold fs-2" style="color:var(--accent-700);">12+</div>
-        <div class="text-secondary small">Pages Built</div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="fw-bold fs-2" style="color:var(--accent-700);">100%</div>
-        <div class="text-secondary small">Beginner Friendly</div>
+      <!-- little stick-figure trio, same hand-drawn icon style as the Strength and Planner pages — hidden on small screens to keep the hero tidy -->
+      <div class="col-lg-5 d-none d-lg-flex justify-content-around">
+        <svg class="hero-figure" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+          <circle cx="20" cy="8" r="4" fill="currentColor" stroke="none"/><path d="M20 12 L20 24"/><path d="M20 15 L10 8"/><path d="M20 15 L30 8"/><path d="M20 24 L12 36"/><path d="M20 24 L28 36"/>
+        </svg>
+        <svg class="hero-figure" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+          <circle cx="20" cy="7" r="4" fill="currentColor" stroke="none"/><path d="M20 11 L20 20"/><path d="M20 13 L13 17"/><path d="M20 13 L27 17"/><path d="M20 20 L12 24 L11 34"/><path d="M20 20 L28 24 L29 34"/>
+        </svg>
+        <svg class="hero-figure" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+          <circle cx="6" cy="14" r="4" fill="currentColor" stroke="none"/><path d="M10 16 L32 22"/><path d="M14 17 L12 27"/><path d="M32 22 L30 28"/>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5 text-center" style="background:var(--accent-50);">
-  <div class="container" style="max-width:700px;">
-    <h2 class="mb-3">Our Purpose</h2>
-    <p class="fs-5 text-secondary">SPFIT started as a class project with one goal: make it easy for anyone, at any fitness level, to find a workout they can actually stick to. No jargon, no guesswork — just clear plans and honest guidance.</p>
-  </div>
-</section>
-
+<!-- Underline tab navigation, NASA "NASA Today / Looking Forward / History" style -->
 <section class="py-5 bg-white">
-  <div class="container" style="max-width:760px;">
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card h-100 text-center p-4" style="border:2px solid var(--accent-200); border-radius:20px;">
-          <div class="icon-box mb-2">🎯</div>
-          <h3 class="h5" style="color:var(--accent-700);">Our Mission</h3>
-          <p class="text-secondary mb-0">Give beginners a clear, judgment-free starting point and give returning users the tools to keep their routine consistent.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card h-100 text-center p-4" style="border:2px solid var(--accent-200); border-radius:20px;">
-          <div class="icon-box mb-2">🌱</div>
-          <h3 class="h5" style="color:var(--accent-700);">Our Vision</h3>
-          <p class="text-secondary mb-0">A community where fitness feels approachable — where the first workout is just as welcome as the hundredth.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-5 text-center" style="background:var(--accent-50);">
   <div class="container">
-    <h2 style="color:var(--accent-800);">Meet the Team</h2>
-    <p class="text-secondary mb-5">The people behind SPFIT</p>
+    <!-- These are plain Bootstrap tabs: data-bs-toggle="tab" + data-bs-target
+         is all Bootstrap needs to switch panes below — no custom JS required. -->
+    <ul class="nav nav-underline justify-content-center mb-5" id="aboutTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="story-tab" data-bs-toggle="tab" data-bs-target="#story-pane" type="button" role="tab">Our Story</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="mission-tab" data-bs-toggle="tab" data-bs-target="#mission-pane" type="button" role="tab">Mission, Vision &amp; Values</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="team-tab" data-bs-toggle="tab" data-bs-target="#team-pane" type="button" role="tab">Meet the Team</button>
+      </li>
+    </ul>
 
-    <div class="row g-4 justify-content-center">
-      <div class="col-6 col-md-3">
-        <button type="button" class="flip-card" aria-label="Flip to read more">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+One" alt="Team member portrait">
-              <h4 class="h6 mb-0">Zachery Swee</h4>
-              <p class="small" style="color:var(--accent-700);">Frontend &amp; Design</p>
-            </div>
-            <div class="flip-back">
-              <p class="mb-0">Handles page layout and styling — keeping the site consistent from page to page.</p>
+    <div class="tab-content">
+
+      <!-- Our Story -->
+      <div class="tab-pane fade show active" id="story-pane" role="tabpanel">
+        <div class="measure text-center mb-5">
+          <p class="fs-5 text-secondary">SPFIT started as a class project with one goal: make it easy for anyone, at any fitness level, to find a workout they can actually stick to. No jargon, no guesswork — just clear plans and honest guidance.</p>
+        </div>
+
+        <!-- Three-step build story: plain Bootstrap grid + border utilities, no new CSS -->
+        <div class="row g-4 measure-lg mx-auto mb-5">
+          <div class="col-md-4">
+            <div class="border-start border-4 border-accent-200 ps-3">
+              <div class="fw-bold text-accent mb-1">1. The Idea</div>
+              <p class="text-secondary small mb-0">A class assignment turned into a real question: why do so many people quit a workout routine in the first two weeks?</p>
             </div>
           </div>
-        </button>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <button type="button" class="flip-card" aria-label="Flip to read more">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Two" alt="Team member portrait">
-              <h4 class="h6 mb-0">Rex Foo</h4>
-              <p class="small" style="color:var(--accent-700);">Content &amp; Research</p>
-            </div>
-            <div class="flip-back">
-              <p class="mb-0">Researches workouts and writes the guidance that goes into every page.</p>
+          <div class="col-md-4">
+            <div class="border-start border-4 border-accent-200 ps-3">
+              <div class="fw-bold text-accent mb-1">2. The Build</div>
+              <p class="text-secondary small mb-0">Four of us split the work — design, content, functionality, and testing — and put it together page by page.</p>
             </div>
           </div>
-        </button>
-      </div>
-
-      <div class="col-6 col-md-3">
-        <button type="button" class="flip-card" aria-label="Flip to read more">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Three" alt="Team member portrait">
-              <h4 class="h6 mb-0">Yu Xi</h4>
-              <p class="small" style="color:var(--accent-700);">Functionality &amp; Scripts</p>
-            </div>
-            <div class="flip-back">
-              <p class="mb-0">Builds the interactive pieces — the quiz, the planner, and everything in between.</p>
+          <div class="col-md-4">
+            <div class="border-start border-4 border-accent-200 ps-3">
+              <div class="fw-bold text-accent mb-1">3. The Launch</div>
+              <p class="text-secondary small mb-0">SPFIT went from wireframes to a working site with quizzes, a planner, and a full library of workouts.</p>
             </div>
           </div>
-        </button>
+        </div>
+
+        <div class="row g-4 text-center">
+          <div class="col-6 col-md-3">
+            <div class="fw-bold fs-2 text-accent">4</div>
+            <div class="text-secondary small">Team Members</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold fs-2 text-accent">4</div>
+            <div class="text-secondary small">Workout Categories</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold fs-2 text-accent">12+</div>
+            <div class="text-secondary small">Pages Built</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold fs-2 text-accent">100%</div>
+            <div class="text-secondary small">Beginner Friendly</div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-6 col-md-3">
-        <button type="button" class="flip-card" aria-label="Flip to read more">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Member+Four" alt="Team member portrait">
-              <h4 class="h6 mb-0">Hajrah</h4>
-              <p class="small" style="color:var(--accent-700);">Testing &amp; QA</p>
-            </div>
-            <div class="flip-back">
-              <p class="mb-0">Checks every page across devices to make sure nothing breaks.</p>
+      <!-- Mission, Vision & Values -->
+      <div class="tab-pane fade" id="mission-pane" role="tabpanel">
+        <div class="row g-4 measure-lg mx-auto">
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-4 border border-2 rounded-4 border-accent-200">
+              <div class="icon-box mb-2">🎯</div>
+              <h3 class="h5 text-accent">Our Mission</h3>
+              <p class="text-secondary mb-0">Give beginners a clear, judgment-free starting point and give returning users the tools to keep their routine consistent.</p>
             </div>
           </div>
-        </button>
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-4 border border-2 rounded-4 border-accent-200">
+              <div class="icon-box mb-2">🌱</div>
+              <h3 class="h5 text-accent">Our Vision</h3>
+              <p class="text-secondary mb-0">A community where fitness feels approachable — where the first workout is just as welcome as the hundredth.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center p-4 border border-2 rounded-4 border-accent-200">
+              <div class="icon-box mb-2">🤝</div>
+              <h3 class="h5 text-accent">Our Values</h3>
+              <p class="text-secondary mb-0">Consistency over intensity, simplicity over jargon, and a plan that fits your actual week — not someone else's.</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Meet the Team: flip cards, handled by initFlipCards() in rex.js -->
+      <div class="tab-pane fade" id="team-pane" role="tabpanel">
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-md-3">
+            <button type="button" class="flip-card" aria-label="Flip to read more">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Yuxi" alt="Team member portrait">
+                  <h4 class="h6 mb-0">Yuxi</h4>
+                  <p class="small text-accent">Frontend &amp; Design</p>
+                </div>
+                <div class="flip-back">
+                  <p class="mb-0">Handles page layout and styling — keeping the site consistent from page to page.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <button type="button" class="flip-card" aria-label="Flip to read more">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Zachery" alt="Team member portrait">
+                  <h4 class="h6 mb-0">Zachery</h4>
+                  <p class="small text-accent">Content &amp; Research</p>
+                </div>
+                <div class="flip-back">
+                  <p class="mb-0">Researches workouts and writes the guidance that goes into every page.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <button type="button" class="flip-card" aria-label="Flip to read more">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Rex" alt="Team member portrait">
+                  <h4 class="h6 mb-0">Rex</h4>
+                  <p class="small text-accent">Functionality &amp; Scripts</p>
+                </div>
+                <div class="flip-back">
+                  <p class="mb-0">Builds the interactive pieces — the quiz, the planner, and everything in between.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <button type="button" class="flip-card" aria-label="Flip to read more">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <img src="https://api.dicebear.com/7.x/initials/svg?seed=Hajrah" alt="Team member portrait">
+                  <h4 class="h6 mb-0">Hajrah</h4>
+                  <p class="small text-accent">Testing &amp; QA</p>
+                </div>
+                <div class="flip-back">
+                  <p class="mb-0">Checks every page across devices to make sure nothing breaks.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <p class="fst-italic text-secondary text-center mt-4">Tap a card to flip it</p>
+      </div>
+
     </div>
-    <p class="fst-italic text-secondary mt-4">Tap a card to flip it</p>
   </div>
 </section>
 
-<section class="py-5 text-center bg-white">
-  <div class="container" style="max-width:600px;">
+<section class="py-5 text-center bg-accent-50">
+  <div class="container measure">
     <h2 class="h3 mb-2">Want to be part of the story?</h2>
     <p class="text-secondary mb-4">Have feedback, a workout idea, or just want to say hi? We'd love to hear from you.</p>
     <a href="connect.html" class="btn btn-accent rounded-pill px-4">Get in Touch</a>
@@ -190,7 +252,7 @@
 </section>
 
 <footer class="bg-dark text-white py-5">
-  <div class="container quote-carousel mx-auto text-center" style="max-width:700px;">
+  <div class="container quote-carousel mx-auto text-center measure">
     <h3 class="mb-4">Daily Motivation</h3>
     <div id="quoteCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner mb-3">

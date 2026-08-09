@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPFIT - Workout Planner</title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/rex.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPFIT - Workout Planner</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/rex.css">
 </head>
 <body class="section-planning">
 
 <header class="site-header no-print">
   <div class="top-bar">
-    <div style="display:flex; align-items:center; gap:12px;">
+    <div class="d-flex align-items-center gap-2">
       <button class="logo-btn" type="button">SP</button>
       <span class="brand-title">SPFIT</span>
     </div>
@@ -21,7 +20,7 @@
 
   <nav class="main-nav">
     <ul>
-      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
 
       <li class="dropdown">
         <p class="dropdownText">About</p>
@@ -58,48 +57,104 @@
 
 <section class="hero-section text-center">
   <h1 class="fw-bold display-5">Workout Planner</h1>
-  <h3 class="fw-normal text-secondary">Lay out your week, one exercise at a time</h3>
+  <h3 class="fw-normal text-secondary">Your week, laid out like a class schedule</h3>
+  <p class="text-secondary mb-0">Add exercises to any day, switch tabs to see your week, and print it when you're ready to train.</p>
 </section>
 
-<main class="py-5">
-  <div class="container" style="max-width:900px;">
-    <div class="text-center mb-4">
-      <h2>Your Weekly Plan</h2>
-      <p class="text-secondary no-print">Pick a day, add an exercise, set your sets and reps. Everything saves automatically on this device — refresh and it's still here.</p>
-      <p class="d-none d-print-block text-secondary small mb-0">Printed from SPFIT Workout Planner</p>
-    </div>
+<section class="py-5">
+  <div class="container measure-lg">
 
     <div id="planStats" class="d-flex justify-content-center gap-5 text-center mb-4"></div>
 
-    <div class="table-responsive bg-white rounded-4 shadow-sm p-3">
-      <table class="table align-middle planner-table mb-0">
-        <thead>
-          <tr>
-            <th style="color:var(--accent-800);">Day</th>
-            <th style="color:var(--accent-800);">Exercise</th>
-            <th style="color:var(--accent-800);">Sets</th>
-            <th style="color:var(--accent-800);">Reps</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="plannerBody">
-          </tbody>
-      </table>
+    <!-- Weekly progress: quick visual on top of the "Days Planned" stat above -->
+    <div class="measure-lg mx-auto mb-4">
+      <div class="d-flex justify-content-between small text-secondary mb-1">
+        <span>Weekly Progress</span>
+        <span id="weekProgressLabel"></span>
+      </div>
+      <div class="progress" role="progressbar" aria-label="Days planned this week">
+        <div class="progress-bar bg-accent" id="weekProgressBar"></div>
+      </div>
     </div>
 
+    <!-- Category legend (kept visible on print too, so the colors/labels make sense on paper) -->
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
+      <span class="badge text-bg-danger rounded-pill px-3 py-2">Upper Body</span>
+      <span class="badge text-bg-success rounded-pill px-3 py-2">Lower Body</span>
+      <span class="badge text-bg-info rounded-pill px-3 py-2">Core</span>
+    </div>
+
+    <!-- Day tabs: built + auto-selected to "today" by rex.js, not hardcoded here -->
+    <div class="d-flex justify-content-center flex-wrap gap-2 mb-4 no-print" id="dayTabs" role="tablist"></div>
+
+    <!-- One tab-pane per day, filled in by rex.js from the saved plan -->
+    <div class="tab-content" id="dayPanes"></div>
+
     <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap no-print">
-      <button type="button" id="addRowBtn" class="btn btn-accent rounded-pill px-4">+ Add Exercise</button>
+      <button type="button" id="addRowBtn" class="btn btn-accent rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#addExerciseModal">+ Add Exercise</button>
       <button type="button" id="clearPlanBtn" class="btn btn-outline-accent rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#clearPlanModal">Clear Plan</button>
       <button type="button" id="printPlanBtn" class="btn btn-outline-accent rounded-pill px-4">Print Schedule</button>
     </div>
   </div>
-</main>
+</section>
 
+<!-- Add exercise modal -->
+<div class="modal fade" id="addExerciseModal" tabindex="-1" aria-labelledby="addExerciseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header modal-header-accent">
+        <h5 class="modal-title text-accent-dark" id="addExerciseModalLabel">Add Exercise</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addExerciseForm">
+          <div class="mb-3">
+            <label class="form-label" for="fieldDay">Day</label>
+            <select class="form-select" id="fieldDay" required></select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="fieldPreset">Exercise</label>
+            <!-- Presets match the Strength Training page exactly, plus a Custom option for anything else -->
+            <select class="form-select" id="fieldPreset"></select>
+          </div>
+          <div class="mb-3 d-none" id="customExerciseWrap">
+            <label class="form-label" for="fieldExercise">Custom Exercise Name</label>
+            <input type="text" class="form-control" id="fieldExercise" placeholder="e.g. Kettlebell Swing">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="fieldCategory">Category</label>
+            <select class="form-select" id="fieldCategory" required>
+              <option value="upper">Upper Body</option>
+              <option value="lower">Lower Body</option>
+              <option value="core">Core</option>
+            </select>
+          </div>
+          <div class="row g-3">
+            <div class="col-6">
+              <label class="form-label" for="fieldSets">Sets</label>
+              <input type="number" min="1" class="form-control" id="fieldSets" value="3" required>
+            </div>
+            <div class="col-6">
+              <label class="form-label" for="fieldReps">Reps</label>
+              <input type="text" class="form-control" id="fieldReps" placeholder="e.g. 10-12" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-accent rounded-pill" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" form="addExerciseForm" class="btn btn-accent rounded-pill">Add to Plan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Clear plan confirmation -->
 <div class="modal fade" id="clearPlanModal" tabindex="-1" aria-labelledby="clearPlanModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header" style="background:var(--accent-50); border-bottom:1px solid var(--accent-200);">
-        <h5 class="modal-title" id="clearPlanModalLabel" style="color:var(--accent-800);">Clear your weekly plan?</h5>
+      <div class="modal-header modal-header-accent">
+        <h5 class="modal-title text-accent-dark" id="clearPlanModalLabel">Clear your weekly plan?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -114,7 +169,7 @@
 </div>
 
 <footer class="bg-dark text-white py-5 no-print">
-  <div class="container quote-carousel mx-auto text-center" style="max-width:700px;">
+  <div class="container quote-carousel mx-auto text-center measure">
     <h3 class="mb-4">Daily Motivation</h3>
     <div id="quoteCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner mb-3">
@@ -140,8 +195,8 @@
         </div>
       </div>
       <div class="d-flex justify-content-center gap-3">
-        <button class="carousel-control-prev position-static" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">&#10094;</button>
-        <button class="carousel-control-next position-static" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">&#10095;</button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">&#10094;</button>
+        <button class="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">&#10095;</button>
       </div>
     </div>
   </div>
