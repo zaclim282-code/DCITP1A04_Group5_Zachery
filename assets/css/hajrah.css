@@ -77,6 +77,10 @@ body.theme-cardio {
     transform: rotateY(180deg);
 }
 
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
 /* ================= Cardio: Daily Challenge box ================= */
 #challenge-box {
     min-height: 70px;

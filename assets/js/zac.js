@@ -1,5 +1,5 @@
 // zac.js — combined script for index.html, connect.html, beginner.html
-// Sections: shared (nav/dropdown/flip-card, runs everywhere) → index-only
+// Sections: shared (nav/dropdown, runs everywhere) → index-only
 // (quote carousel, hero buttons) → beginner-only (view all toggle) →
 // connect-only (join form validation)
 
@@ -75,14 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
         });
     }
-
-    /* ================= Shared: flip-card click-to-flip ================= */
-    document.querySelectorAll('.flip-card').forEach((card) => {
-        card.addEventListener('click', () => {
-            const flipped = card.classList.toggle('flipped');
-            card.setAttribute('aria-pressed', String(flipped));
-        });
-    });
 
     /* ================= Index-only: motivation quote carousel ================= */
     const quotes = [
