@@ -1,5 +1,5 @@
 /* ============================================================
-   SPFIT — main.js
+   SPFIT — rex.js
    Small, page-aware script. Every init function checks for its
    own elements first, so this one file can be safely included
    on every page.
@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initStrengthQuiz();
   initExerciseDetails();
   initWorkoutPlanner();
+  initQuoteCarousel();
+  initHeroButtons();
+  initLoginButton();
 });
 
 /* ---------- Site nav: dropdown toggles + active link highlighting ---------- */
@@ -86,8 +89,72 @@ function initNavDropdowns() {
 function initFlipCards() {
   document.querySelectorAll('.flip-card').forEach(function (card) {
     card.addEventListener('click', function () {
-      card.classList.toggle('flipped');
+      var flipped = card.classList.toggle('flipped');
+      card.setAttribute('aria-pressed', String(flipped));
     });
+  });
+}
+
+/* ---------- About page: motivation quote carousel ---------- */
+var quotes = [
+  { text: "The only bad workout is the one that didn't happen.", author: "Unknown" },
+  { text: "Strength doesn't come from what you can do. It comes from overcoming what you once couldn't.", author: "Rikki Rogers" },
+  { text: "Take care of your body. It's the only place you have to live.", author: "Jim Rohn" },
+  { text: "Success starts with self-discipline.", author: "Unknown" }
+];
+var currentQuote = 0;
+
+function renderQuote() {
+  var textEl = document.getElementById('quote-text');
+  var authorEl = document.getElementById('quote-author');
+  if (!textEl || !authorEl) return;
+  textEl.textContent = '"' + quotes[currentQuote].text + '"';
+  authorEl.textContent = '- ' + quotes[currentQuote].author;
+}
+
+function nextQuote() {
+  currentQuote = (currentQuote + 1) % quotes.length;
+  renderQuote();
+}
+
+function prevQuote() {
+  currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
+  renderQuote();
+}
+
+function initQuoteCarousel() {
+  // exposed globally in case the arrow buttons use inline onclick="nextQuote()" / prevQuote()
+  window.nextQuote = nextQuote;
+  window.prevQuote = prevQuote;
+  renderQuote(); // no-ops harmlessly on pages without #quote-text
+}
+
+/* ---------- Home page: hero section buttons ---------- */
+function initHeroButtons() {
+  var workoutBtn = document.getElementById('Workoutbtn');
+  if (workoutBtn) {
+    workoutBtn.addEventListener('click', function () {
+      window.location.href = 'html/workoutTable.html';
+    });
+  }
+
+  var searchBtn = document.getElementById('Searchbtn');
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function () {
+      var features = document.querySelector('.features-section');
+      if (features) features.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+}
+
+/* ---------- Header: Login/Join button ---------- */
+function initLoginButton() {
+  var loginBtn = document.querySelector('.login-btn');
+  if (!loginBtn) return;
+
+  loginBtn.addEventListener('click', function () {
+    var onHomePage = !window.location.pathname.includes('/html/');
+    window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
   });
 }
 
@@ -336,9 +403,6 @@ function initWorkoutPlanner() {
   var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var SHORT = { Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu', Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun' };
   var CATEGORY = {
-    /* label = badge text, border/badge = Bootstrap contextual classes (no custom CSS needed),
-       icon = a tiny hand-drawn stick figure so each category also reads at a glance,
-       matching the icon style already used on the Strength page. */
     upper: {
       label: 'Upper Body', border: 'border-danger', badge: 'text-bg-danger', text: 'text-danger',
       icon: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="8" r="4" fill="currentColor" stroke="none"/><path d="M20 12 L20 24"/><path d="M20 15 L12 10"/><path d="M20 15 L28 10"/><path d="M20 24 L14 34"/><path d="M20 24 L26 34"/></svg>'
@@ -352,10 +416,8 @@ function initWorkoutPlanner() {
       icon: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="14" r="4" fill="currentColor" stroke="none"/><path d="M10 16 L32 22"/><path d="M14 17 L12 27"/><path d="M32 22 L30 28"/></svg>'
     }
   };
-  var todayName = DAYS[(new Date().getDay() + 6) % 7]; // getDay(): Sun=0 -> shift so Monday=0
+  var todayName = DAYS[(new Date().getDay() + 6) % 7];
 
-  /* Same 9 exercises as the Strength Training page, so the planner's quick-add
-     list and the default plan always match what's actually taught there. */
   var PRESET_EXERCISES = [
     { id: 'benchpress', name: 'Barbell Bench Press', category: 'upper', sets: 4, reps: '6-10' },
     { id: 'latpulldown', name: 'Lat Pulldown', category: 'upper', sets: 3, reps: '10-12' },
@@ -397,7 +459,6 @@ function initWorkoutPlanner() {
     });
   }
 
-  /* Build the tab buttons + empty panes once */
   tabsEl.innerHTML = DAYS.map(function (day) {
     var isToday = day === todayName;
     return '<button type="button" class="btn filter-btn' + (isToday ? ' active' : '') +
@@ -448,7 +509,6 @@ function initWorkoutPlanner() {
             '<div class="card h-100 border-top border-3 ' + cat.border + ' position-relative">' +
               '<button type="button" class="btn-close position-absolute top-0 end-0 m-2 planner-remove" data-idx="' + idx + '" aria-label="Remove"></button>' +
               '<div class="card-body">' +
-                /* icon + badge share a row so the stick figure sits right next to its label */
                 '<div class="d-flex align-items-center gap-2 mb-2">' +
                   '<span class="exercise-icon ' + cat.text + '">' + cat.icon + '</span>' +
                   '<span class="badge ' + cat.badge + '">' + cat.label + '</span>' +
@@ -468,8 +528,6 @@ function initWorkoutPlanner() {
     renderStats();
   }
 
-  /* One delegated click handler covers every card's × button, even ones
-     that get re-rendered later — no need to re-bind listeners each time. */
   panesEl.addEventListener('click', function (e) {
     var btn = e.target.closest('.planner-remove');
     if (!btn) return;
@@ -478,7 +536,6 @@ function initWorkoutPlanner() {
     render();
   });
 
-  /* Add exercise modal: fill the Day dropdown + preset picker, then listen for submit */
   var dayField = document.getElementById('fieldDay');
   if (dayField) {
     dayField.innerHTML = DAYS.map(function (d) { return '<option value="' + d + '">' + d + '</option>'; }).join('');
@@ -515,13 +572,13 @@ function initWorkoutPlanner() {
         exerciseField.focus();
       }
     });
-    presetField.dispatchEvent(new Event('change')); // pre-fill using the first preset
+    presetField.dispatchEvent(new Event('change'));
   }
 
   var addForm = document.getElementById('addExerciseForm');
   if (addForm) {
     addForm.addEventListener('submit', function (e) {
-      e.preventDefault(); // stop the form from actually navigating anywhere
+      e.preventDefault();
       plan.push({
         day: document.getElementById('fieldDay').value,
         exercise: document.getElementById('fieldExercise').value.trim(),
@@ -533,7 +590,6 @@ function initWorkoutPlanner() {
       render();
       addForm.reset();
       if (presetField) presetField.dispatchEvent(new Event('change'));
-      // close the modal the same way a Bootstrap data-bs-dismiss button would
       var modalEl = document.getElementById('addExerciseModal');
       var modal = bootstrap.Modal.getOrCreateInstance(modalEl);
       modal.hide();

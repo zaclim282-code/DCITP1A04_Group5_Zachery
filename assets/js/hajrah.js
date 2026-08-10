@@ -1,4 +1,14 @@
 /*
+ * hajrah.js — combined script for cardio.html, nutrition.html, tips.html
+ * (companion to Hajrah.css). Everything is guarded with element checks,
+ * so this one file can be safely loaded on all three pages even though
+ * each page only uses some of it:
+ *   - Flip cards: cardio, nutrition, tips
+ *   - Daily challenge + workout timer: cardio only
+ *   - Nutrition quiz: nutrition only
+ */
+
+/*
  * NUTRITION QUIZ
  * --------------
  * How this works, in plain terms:
@@ -139,14 +149,103 @@ function gradeQuiz() {
     resultBox.classList.remove('d-none');
 }
 
-// Wire everything up once the page has finished loading
-document.addEventListener('DOMContentLoaded', () => {
-    buildQuiz();
+// --- CARDIO: Daily Challenge (random generator) ---
+const challenges = [
+    "Walk 5,000 steps today!",
+    "Perform 30 minutes of brisk cycling.",
+    "Complete 3 rounds of 1-minute jump rope.",
+    "Try a 15-minute HIIT session.",
+    "Take a 20-minute power walk after dinner.",
+    "Climb 10 flights of stairs today!"
+];
 
+function generateChallenge() {
+    const randomIndex = Math.floor(Math.random() * challenges.length);
+    const challengeText = document.getElementById('challenge-text');
+    if (challengeText) {
+        challengeText.innerText = challenges[randomIndex];
+    }
+}
+
+// --- CARDIO: Workout Timer ---
+let timerInterval = null;
+let seconds = 0;
+let isRunning = false;
+
+function toggleTimer() {
+    const startBtn = document.getElementById('start-btn');
+
+    if (isRunning) {
+        clearInterval(timerInterval);
+        if (startBtn) {
+            startBtn.innerText = 'Start Timer';
+            startBtn.classList.replace('btn-danger', 'btn-dark');
+        }
+    } else {
+        timerInterval = setInterval(() => {
+            seconds++;
+            let mins = Math.floor(seconds / 60);
+            let secs = seconds % 60;
+            const timerDisplay = document.getElementById('timer');
+            if (timerDisplay) {
+                timerDisplay.innerText =
+                    (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+            }
+        }, 1000);
+        if (startBtn) {
+            startBtn.innerText = 'Stop Timer';
+            startBtn.classList.replace('btn-dark', 'btn-danger');
+        }
+    }
+    isRunning = !isRunning;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    isRunning = false;
+    seconds = 0;
+    const timerDisplay = document.getElementById('timer');
+    if (timerDisplay) {
+        timerDisplay.innerText = "00:00";
+    }
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        startBtn.innerText = 'Start Timer';
+        startBtn.classList.replace('btn-danger', 'btn-dark');
+    }
+}
+
+// --- Wire everything up once the page has finished loading ---
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Shared: Flip Card Interaction (cardio, nutrition, tips) — one listener,
+    // not duplicated per page.
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', function () {
+            this.classList.toggle('flipped');
+            const isFlipped = this.classList.contains('flipped');
+            this.setAttribute('aria-pressed', isFlipped);
+        });
+    });
+
+    // Cardio-only: Daily Challenge button
+    const challengeBtn = document.getElementById('new-challenge-btn');
+    if (challengeBtn) {
+        challengeBtn.addEventListener('click', generateChallenge);
+    }
+
+    // Cardio-only: Workout Timer buttons
+    const startBtn = document.getElementById('start-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', toggleTimer);
+    }
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetTimer);
+    }
+
+    // Nutrition-only: quiz
+    buildQuiz();
     document.getElementById('startQuizBtn')?.addEventListener('click', startQuiz);
     document.getElementById('submitQuizBtn')?.addEventListener('click', gradeQuiz);
-
-    // Note: meal-card flip behavior is handled by main.js (loaded before
-    // this file) — it already attaches a click listener to every
-    // .flip-card on the page, so it doesn't need to be duplicated here.
 });
