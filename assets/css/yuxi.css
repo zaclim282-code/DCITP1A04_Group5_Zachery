@@ -1,0 +1,91 @@
+/* YuXi.css — page-specific styles for stretchingandflexibility.html,
+   mainActivity.html, and gallery.html.
+   Depends on zac.css being loaded first (site-header, top-bar, logo-btn,
+   brand-title, login-btn, main-nav, dropdownItems, and the base reset
+   all come from there — not repeated here). */
+
+/* ---------- Shared: these 3 pages use an orange nav, not the site green ---------- */
+.main-nav {
+    background: #fd7e14;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Desktop hover-to-reveal, in addition to zac.css's click/.active toggle */
+.dropdown:hover .dropdownItems {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.dropdownItems li a:hover {
+    background-color: orange;
+    color: #ffffff !important;
+}
+
+/* ---------- Gallery-page background (safe as a bare `body` rule: activity's
+   inline style and stretch's .bg-primary-subtle class both out-specificity it) ---------- */
+body {
+    background-color: #fcfcfc;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Filter buttons: scoped per page container to avoid collision ---------- */
+
+/* Stretch page — Warm-Up / Cool-Down (blue theme) */
+#stretch-filters .filter-btn {
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+    background-color: #ffffff;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+#stretch-filters .filter-btn:hover { background-color: #e7f1ff; }
+
+#stretch-filters .filter-btn.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+/* Gallery page — category filters (orange theme) */
+#gallery-filters .filter-btn.active {
+    background-color: #fd7e14 !important;
+    color: #ffffff !important;
+    border-color: #fd7e14 !important;
+}
+
+.container-xl { max-width: 1200px; }
+
+/* ---------- Gallery grid ---------- */
+.gallery-item { transition: transform 0.2s ease-in-out; }
+.gallery-item:hover { transform: translateY(-5px); cursor: pointer; }
+.img-square { aspect-ratio: 1 / 1; }
+
+/* ---------- Shared orange theme utilities ---------- */
+.bg-orange { background-color: #fd7e14 !important; }
+.text-orange { color: #fd7e14 !important; }
+.border-orange { border-color: #fd7e14 !important; }
+
+/* ---------- Shared component styling (cards, dark button, badge icon) ---------- */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e0e0e0;
+}
+
+.btn-dark-custom {
+    background-color: #1a2332;
+    color: white;
+    border: none;
+}
+
+.btn-dark-custom:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.badge-icon { font-size: 3rem; color: #d1d5db; }
+
+/* ---------- Activity page ---------- */
+.achievement-row { transition: all 0.4s ease; }
+#xpCount, #fpCount { transition: color 0.3s ease; }

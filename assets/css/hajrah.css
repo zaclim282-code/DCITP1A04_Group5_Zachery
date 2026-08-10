@@ -1,0 +1,97 @@
+/* Hajrah.css — page-specific styles for cardio.html, nutrition.html, tips.html
+   Requires zac.css to be linked BEFORE this file — header, nav, logo-btn,
+   login-btn, brand-title, and the base .dropdownItems rules already live
+   there and are intentionally NOT repeated here.
+*/
+
+/* ================= New page-specific variables ================= */
+:root {
+    --page-bg-cardio: #ff8a8a;
+}
+
+/* Cardio page red background.
+   Add class="theme-cardio" to <body> in cardio.html to activate — CSS
+   alone can't tell pages apart, so this needs one small hook in the markup. */
+body.theme-cardio {
+    background-color: var(--page-bg-cardio);
+}
+
+/* ================= Dropdown: hover-to-open + theme-matched hover color =================
+   zac.css already defines .dropdownItems' base look (position, shadow, width)
+   and the .active toggle for mobile taps. This just adds a desktop hover trigger
+   and colors the link hover state to match each page's nav (red on cardio's
+   bg-danger nav, blue on nutrition/tips' bg-primary nav) instead of zac.css's
+   default green. */
+.dropdown:hover .dropdownItems {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.main-nav.bg-danger .dropdownItems li a:hover {
+    background-color: #ff0000;
+    color: #ffffff !important;
+}
+
+.main-nav.bg-primary .dropdownItems li a:hover {
+    background-color: #0d6efd;
+    color: #ffffff !important;
+}
+
+/* ================= Flip Card component (not in zac.css) ================= */
+.flip-card {
+    perspective: 1000px;
+    height: 260px;
+    overflow: hidden;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+/* ================= Cardio: Daily Challenge box ================= */
+#challenge-box {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d4e8f7;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+    .dropdownItems {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: var(--soft-gray, #f7f5fa);
+    }
+}
