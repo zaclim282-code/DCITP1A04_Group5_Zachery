@@ -7,14 +7,14 @@
    Color system: each page picks ONE section class on <body>.
    Everything below reads --accent-* instead of a hardcoded
    color, so the same rules repaint per section automatically.
-     .section-general  (Home, About)             → green  — vitality
+     .section-general  (Home, About)            → green  — vitality
      .section-fitness  (Beginner/Strength/Cardio) → red    — energy
      .section-health   (Nutrition/Tips/Gallery)   → blue   — vitality
      .section-planning (Workout Planner)          → orange — energy
    ============================================================ */
 
 :root {
-  --dark: #2d2d3a;
+  --white: #ffffff;
   --soft-gray: #f7f5fa;
 
   /* fallback accent = general/green, so unclassed elements still work */
@@ -24,7 +24,8 @@
 
 .section-general {
   --accent-50: #f0fdf4;  --accent-100: #dcfce7; --accent-200: #bbf7d0;
-  --accent-500: #22c55e; --accent-600: #16a34a; --accent-700: #15803d; --accent-800: #166534;
+  --accent-500: #22c55e; --accent-600: #16a34a; --accent-700: #15803d; 
+  --accent-800: #157039; /* Updated to match your image */
 }
 .section-fitness {
   --accent-50: #fef2f2;  --accent-100: #fee2e2; --accent-200: #fecaca;
@@ -98,7 +99,7 @@ body {
 }
 .login-btn:hover { background: var(--accent-700); color: #fff; }
 
-.main-nav { background: var(--accent-100); width: 100%; }
+.main-nav { background: var(--accent-800); width: 100%; }
 
 .main-nav > ul {
   list-style: none;
@@ -122,13 +123,17 @@ body {
   font-weight: 600;
   font-size: .9rem;
   cursor: pointer;
-  color: var(--dark);
+  color: var(--white);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
+/* FIX: Hover color updated to light tint so text stays visible over dark backgrounds */
 .main-nav a:hover,
 .main-nav a.active,
-.main-nav .dropdownText:hover { color: var(--accent-800); }
+.main-nav .dropdownText:hover { 
+  color: var(--accent-100); 
+}
 
 .dropdownItems {
   display: none;
@@ -142,7 +147,7 @@ body {
   padding: 8px 0;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
   z-index: 1000;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   list-style: none;
 }
 .dropdownItems.active { display: flex !important; flex-direction: column !important; }
@@ -157,6 +162,17 @@ body {
 }
 .dropdownItems li a:hover,
 .dropdownItems li a.active { background: var(--accent-50); color: var(--accent-700); }
+/* 1. Show when hovered with mouse */
+.dropdown:hover .dropdownItems {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* 2. Show when clicked (keeps click/tap functionality working for mobile) */
+.dropdownItems.active { 
+  display: flex !important; 
+  flex-direction: column !important; 
+}
 
 /* Strength page only: brighter red nav bar, per earlier request */
 .nav-strength-red { background-color: #ff0000 !important; }
@@ -219,6 +235,7 @@ body {
 .bg-accent-50 { background: var(--accent-50); }
 .border-accent-200 { border-color: var(--accent-200) !important; }
 .modal-header-accent { background: var(--accent-50); border-bottom: 1px solid var(--accent-200); }
+.measure-sm { max-width: 640px; margin-inline: auto; }
 .measure { max-width: 700px; margin-inline: auto; }
 .measure-lg { max-width: 900px; margin-inline: auto; }
 

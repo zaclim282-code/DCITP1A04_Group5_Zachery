@@ -67,21 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* ================= Shared: header Login/Join button ================= */
-    const loginBtn = document.querySelector('.login-btn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-            const onHomePage = !window.location.pathname.includes('/html/');
-            window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
-        });
-    }
-
     /* ================= Index-only: motivation quote carousel ================= */
     const quotes = [
-        { text: "The only bad workout is the one that didn't happen.", author: "Unknown" },
+        { text: "The only bad workout is the one that didn't happen.", author: "Joe Mama" },
         { text: "Strength doesn't come from what you can do. It comes from overcoming what you once couldn't.", author: "Rikki Rogers" },
         { text: "Take care of your body. It's the only place you have to live.", author: "Jim Rohn" },
-        { text: "Success starts with self-discipline.", author: "Unknown" }
+        { text: "Success starts with self-discipline.", author: "Ronny" }
     ];
     let currentQuote = 0;
 

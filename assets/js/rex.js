@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initWorkoutPlanner();
   initQuoteCarousel();
   initHeroButtons();
-  initLoginButton();
 });
 
 /* ---------- Site nav: dropdown toggles + active link highlighting ---------- */
@@ -145,17 +144,6 @@ function initHeroButtons() {
       if (features) features.scrollIntoView({ behavior: 'smooth' });
     });
   }
-}
-
-/* ---------- Header: Login/Join button ---------- */
-function initLoginButton() {
-  var loginBtn = document.querySelector('.login-btn');
-  if (!loginBtn) return;
-
-  loginBtn.addEventListener('click', function () {
-    var onHomePage = !window.location.pathname.includes('/html/');
-    window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
-  });
 }
 
 /* ---------- Strength page: filter pills ---------- */

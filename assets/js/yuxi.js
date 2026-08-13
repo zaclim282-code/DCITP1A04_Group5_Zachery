@@ -226,15 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Header Login/Join button listener
-    const loginBtn = document.querySelector('.login-btn');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', () => {
-            const onHomePage = !window.location.pathname.includes('/html/');
-            window.location.href = onHomePage ? 'html/joinus.html' : 'joinus.html';
-        });
-    }
-
     // 6. Flip card interaction (e.g. About Us page)
     document.querySelectorAll('.flip-card').forEach((card) => {
         card.addEventListener('click', () => {
